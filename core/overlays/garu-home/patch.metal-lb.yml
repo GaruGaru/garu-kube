@@ -1,0 +1,32 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metal-lb
+  namespace: kube-system
+spec:
+  values:
+    controller:
+      resources:
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        requests:
+          memory: 25Mi
+          cpu: 25m
+
+    speaker:
+      resources:
+        limits:
+          cpu: 100m
+          memory: 100Mi
+        requests:
+          memory: 25Mi
+          cpu: 25m
+
+    configInline:
+      address-pools:
+        - name: default
+          protocol: layer2
+          addresses:
+            - 192.168.1.240-192.168.1.250

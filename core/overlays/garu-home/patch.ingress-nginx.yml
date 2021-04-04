@@ -1,0 +1,31 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx-ingress
+  namespace: ingress
+spec:
+
+  values:
+    controller:
+      kind: DaemonSet
+      hostNetwork: false
+      service:
+        externalTrafficPolicy: Cluster
+      hostPort:
+        enabled: true
+        ports:
+          http: 80
+          https: 443
+      resources:
+        requests:
+          cpu: 100m
+          memory: 150Mi
+        limits:
+          cpu: 100m
+          memory: 150Mi
+
+      metrics:
+        enabled: false
+        serviceMonitor:
+          enabled: false

@@ -21,8 +21,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  dependsOn:
-    - name: core
   path: /core/overlays/garu-home
   prune: true
   sourceRef:

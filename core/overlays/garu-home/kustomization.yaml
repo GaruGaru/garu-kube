@@ -12,4 +12,4 @@ patchesStrategicMerge:
   - patch.metal-lb.yml
   - patch.ingress-nginx.yml
   - patch.metrics-server.yml
-  - observability/prometheus/patch.prometheus.yml
+  - patch.prometheus.yml

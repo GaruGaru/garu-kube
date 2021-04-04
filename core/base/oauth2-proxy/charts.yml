@@ -24,7 +24,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: datappeal
-        namespace: flux-system
+        namespace: oauth2-proxy
       interval: 10m
   test:
     enable: false # Enable helm test

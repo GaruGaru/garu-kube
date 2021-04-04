@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: garu-io
+  labels:
+    namespace: garu-io
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: garu-io-projects-api
+  labels:
+    namespace: garu-io-projects-api
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: garu-io-frontend-api
+  labels:
+    namespace: garu-io-frontend-api

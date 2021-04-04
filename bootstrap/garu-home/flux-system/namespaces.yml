@@ -8,7 +8,7 @@ spec:
   interval: 10m0s
   dependsOn:
     - name: core
-  path: ../../apps/overlays/garu-home
+  path: /apps/overlays/garu-home
   prune: true
   sourceRef:
     kind: GitRepository
@@ -23,7 +23,7 @@ spec:
   interval: 10m0s
   dependsOn:
     - name: core
-  path: ../../core/overlays/garu-home
+  path: /core/overlays/garu-home
   prune: true
   sourceRef:
     kind: GitRepository

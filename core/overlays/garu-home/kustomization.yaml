@@ -6,7 +6,9 @@ resources:
   - ../../base/metal-lb
   - ../../base/ingress-nginx
   - ../../base/kube-system
+  # WIP - ../../base/monitoring/prometheus
 patchesStrategicMerge:
   - patch.metal-lb.yml
   - patch.ingress-nginx.yml
   - patch.metrics-server.yml
+  - observability/prometheus/patch.prometheus.yml

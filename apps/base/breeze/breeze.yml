@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: controller
+  namespace: breeze
+spec:
+  selector:
+    matchLabels:
+      app: breeze
+      controller: fan
+  template:
+    metadata:
+      labels:
+        app: breeze
+        controller: fan
+    spec:
+      volumes:
+        - name: gpio-mem
+          hostPath:
+            path: /dev/gpiomem
+        - name: gpio
+          hostPath:
+            path: /sys/class/gpio
+        - name: gpio-chip0
+          hostPath:
+            path: /dev/gpiochip0
+      containers:
+        - name: breeze
+          image: garugaru/breeze:latest
+          command: ["breeze", "controller", "--target-temperature=65", "--temperature-cooldown-percent=20"]
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9999
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: gpio-mem
+              mountPath: /dev/gpiomem
+            - name: gpio
+              mountPath: /sys/class/gpio
+            - name: gpio-chip0
+              mountPath: /dev/gpiochip0
+          securityContext:
+            privileged: true
+          resources:
+            requests:
+              memory: "5Mi"
+              cpu: "10m"
+            limits:
+              memory: "20Mi"
+              cpu: "50m"
+

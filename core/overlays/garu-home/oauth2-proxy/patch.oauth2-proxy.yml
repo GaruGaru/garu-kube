@@ -1,0 +1,35 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: oauth2-proxy
+  namespace: kube-system
+spec:
+  values:
+    config:
+      existingSecret: oauth2-proxy-auth
+
+    extraArgs:
+      provider: github
+      upstream: http://localhost/redirect/
+      cookie-domain: .garu-io
+      github-user: GaruGaru
+
+    authenticatedEmailsFile:
+      enabled: false
+
+    ingress:
+      enabled: true
+      path: /
+      hosts:
+        - oauth.garu.io
+
+    resources:
+      limits:
+        cpu: 100m
+        memory: 300Mi
+      requests:
+        cpu: 10m
+        memory: 30Mi
+
+    replicaCount: 2

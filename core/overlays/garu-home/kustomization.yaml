@@ -5,6 +5,8 @@ resources:
   - cert-manager/
   - ../../base/metal-lb
   - ../../base/ingress-nginx
+  - ../../base/kube-system
 patchesStrategicMerge:
   - patch.metal-lb.yml
   - patch.ingress-nginx.yml
+  - patch.metrics-server.yml

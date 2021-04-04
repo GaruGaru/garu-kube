@@ -1,0 +1,15 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: metrics-server
+  namespace: kube-system
+spec:
+  values:
+    replicas: 2
+    image:
+      repository: gcr.io/google_containers/metrics-server-arm64
+      tag: v0.3.6
+    args:
+      - --kubelet-insecure-tls=true
+      - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname

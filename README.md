@@ -1,6 +1,6 @@
 <h1 align="center">
   <p align="center">Garu's kubernetes cluster gitops </p>
-<a href="https://kubernetes.io/" alt="k8s"><img src="https://img.shields.io/badge/k3s-v1.20.5-orange" /></a>
+<a href="https://k3s.io/" alt="k8s"><img src="https://img.shields.io/badge/k3s-v1.20.5-orange" /></a>
 </h1>
 
 

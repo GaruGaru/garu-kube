@@ -12,9 +12,11 @@ spec:
       enabled: true
       persistence:
         enabled: true
-        storageClassName: longhorn
-        accessModes: [ "ReadWriteOnce" ]
-        size: 10Gi
+        storageClassName: default
+        accessModes:
+          - ReadWriteOnce
+        size: 3Gi
+
       plugins:
         - grafana-worldmap-panel
         - grafana-piechart-panel

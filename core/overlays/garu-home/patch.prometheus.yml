@@ -12,6 +12,7 @@ spec:
       enabled: true
       persistence:
         enabled: true
+        storageClassName: longhorn
         accessModes: [ "ReadWriteOnce" ]
         size: 10Gi
       plugins:

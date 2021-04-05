@@ -23,7 +23,7 @@
       "bootstrap/"
     ]
   },
-  "helm-values": {"fileMatch": ["charts.yml"]},
+  "helm-values": {"fileMatch": ["(.+)charts.yml"]},
   "regexManagers": [
     {
       "fileMatch": ["charts.yml"],

@@ -24,9 +24,17 @@ spec:
 
     ingress:
       enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        kubernetes.io/ingress.class: nginx
+        nginx.ingress.kubernetes.io/proxy-body-size: "0"
       path: /
       hosts:
         - oauth.garu.io
+      tls:
+        - secretName: oauth-cert
+          hosts:
+            - oauth.garu.io
 
     resources:
       limits:

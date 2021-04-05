@@ -27,7 +27,7 @@ spec:
         enabled: true
         annotations:
           # oauth2
-          nginx.ingress.kubernetes.io/auth-url: "https://oauth.datappeal.io/oauth2/auth"
+          nginx.ingress.kubernetes.io/auth-url: "https://oauth.garu.io/oauth2/auth"
           nginx.ingress.kubernetes.io/auth-signin: "https://oauth.garu.io/oauth2/start?rd=/redirect/$http_host$escaped_request_uri"
 
           cert-manager.io/cluster-issuer: letsencrypt-prod

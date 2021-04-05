@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ../../base/garu-io
   - ../../base/breeze
+  - ../../base/garu-github-bot

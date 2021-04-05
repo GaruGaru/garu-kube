@@ -16,7 +16,7 @@ spec:
     extraArgs:
       provider: github
       upstream: http://localhost/redirect/
-      cookie-domain: .garu-io
+      cookie-domain: .garu.io
       github-user: GaruGaru
 
     authenticatedEmailsFile:

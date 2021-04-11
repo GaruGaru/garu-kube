@@ -1,0 +1,59 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: webhook-token
+  namespace: flux-system
+spec:
+  encryptedData:
+    token: AgBFUbbNn7uDUq1WgNE88BefCV9f8fmr4tHSDWrH3PjoL5xivQCZq0ipWB+kfbTuroN84bfgNXHuP+ikibMn6/wDqk6XN+epyntPUlB2hNaj9uGk/pMdYGtHW5UX6WNIMpdLrXIBZkPfWkKr4LQuiK02RElbC4f8qFdEEwa0eJm1aKtXVzykabUYzgsCrAjetf2qST1hLwb2YGYz/DzdqDyvAZAU8d7xUo3mREc7cmkzd67NtwMs0sw81VRltytSOdjSLwrRdnodDmDvsvxfEW/o8xmIA5gg91crJDVw1fSj2MBq+oMxlgVi6+wWbJkBgZdMfDqKN7DHHk0OXgsvZpztWi5CHYKqXWBFioJkXU/YrsDcUpBKKq3JW1tGHR3l38fxhHRjSziEnkQOL8Od8NMQoP7woJXEXftkt0jW8uVGT1qT6ffbzG1esfGb9GbHBbQct1u3fNn9yztMdDNkiiMD01fpS7qt6GKZxgnQjLH1UIJGtWTIN5v+0pPEsDdmRn2+/V9OTnjgopE7wIYxcmtocfZ15eM9f7BG4AdFhvAnPU1mOgVhLdvnQK+PnRt6HcCK75FkG1/+zHQaY9sOV3X5lPGzy1sq7p863bR7ysHFKHT2ndnqY6Uyp4z0U2y0l89oFU+eV0JXWeDXT8xmWxh0sFiTBU3cL/HI9bDchsGvJcRs5PBdaxYS3HmgEUX63/XP1sSaSkD99Ls4cdRezp660ipTZqk70j3tMZMFuKM=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: webhook-token
+      namespace: flux-system
+    type: Opaque
+
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta1
+kind: Receiver
+metadata:
+  name: k8s-github
+  namespace: flux-system
+spec:
+  type: github
+  events:
+    - 'ping'
+    - 'push'
+  secretRef:
+    name: webhook-token
+  resources:
+    - apiVersion: source.toolkit.fluxcd.io/v1beta1
+      kind: GitRepository
+      name: flux-system
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webhook-receiver
+  namespace: flux-system
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: flux-wb.garu.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: webhook-receiver
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - flux-wb.garu.io
+      secretName: webhook-receiver-tls
+

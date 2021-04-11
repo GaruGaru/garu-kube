@@ -9,6 +9,7 @@ resources:
   - ../../base/storage/local-path-provisioner
   - ../../base/storage/longhorn
   - ../../base/kyverno
+  - ../../base/policies
   - cert-manager/
   - oauth2-proxy/
   - ../../base/monitoring/prometheus

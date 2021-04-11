@@ -42,4 +42,4 @@ spec:
     cleanupOnFail: true
   values:
     namespace: kyverno
-
+    replicaCount: 2

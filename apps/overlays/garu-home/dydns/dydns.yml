@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: dydns
+  namespace: dydns
+spec:
+  selector:
+    matchLabels:
+      app: dydns
+
+  template:
+    metadata:
+      labels:
+        app: dydns
+
+    spec:
+      containers:
+        - name: dydns
+          image: garugaru/dydns:arm
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: dydns
+          resources:
+            requests:
+              memory: "5Mi"
+              cpu: "10m"
+            limits:
+              memory: "15Mi"
+              cpu: "20m"

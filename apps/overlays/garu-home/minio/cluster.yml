@@ -17,20 +17,8 @@ spec:
   imagePullPolicy: IfNotPresent
   credsSecret:
     name: minio-creds-secret
-
   pools:
-    ## Servers specifies the number of MinIO Tenant Pods / Servers in this pool.
-    ## For standalone mode, supply 1. For distributed mode, supply 4 or more.
-    ## Note that the operator does not support upgrading from standalone to distributed mode.
     - servers: 4
       volumesPerServer: 4
-      volumeClaimTemplate:
-        metadata:
-          name: data
-        spec:
-          storageClassName: local-path
-          accessModes:
-            - ReadWriteOnce
-          resources:
-            requests:
-              storage: 20Gb
+      size: 10Gi
+      storageClassName: standard

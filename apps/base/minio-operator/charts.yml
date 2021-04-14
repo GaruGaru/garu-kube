@@ -1,0 +1,62 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: minio
+  namespace: flux-system
+spec:
+  interval: 24h
+  url: https://operator.min.io/
+  timeout: 3m
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minio-operator
+  namespace: minio-operator
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://operator.min.io/
+      chart: minio-operator
+      version: '4.0.7-1'
+      sourceRef:
+        kind: HelmRepository
+        name: minio
+        namespace: flux-system
+      interval: 10m
+  test:
+    enable: false # Enable helm test
+  install:
+    remediation: # perform remediation when helm install fails
+      retries: 3
+  upgrade:
+    remediation: # perform remediation when helm upgrade fails
+      retries: 3
+      remediateLastFailure: true # remediate the last failure, when no retries remain
+    cleanupOnFail: true
+  rollback:
+    timeout: 10m
+    recreate: true
+    cleanupOnFail: true
+
+  values:
+    controller:
+      service:
+        externalTrafficPolicy: Cluster
+      kind: DaemonSet
+      hostNetwork: false
+      hostPort:
+        enabled: true
+        ports:
+          http: 80
+          https: 443
+      resources:
+        requests:
+          cpu: 100m
+          memory: 150Mi
+        limits:
+          cpu: 100m
+          memory: 150Mi

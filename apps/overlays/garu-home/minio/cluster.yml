@@ -21,4 +21,4 @@ spec:
     - servers: 4
       volumesPerServer: 4
       size: 10Gi
-      storageClassName: standard
+      storageClassName: local-path

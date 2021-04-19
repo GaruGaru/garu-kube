@@ -4,7 +4,7 @@ apiVersion: minio.min.io/v2
 kind: Tenant
 metadata:
   name: minio
-  namespace: minio
+  namespace: minio-operator
   labels:
     app: minio
   annotations:

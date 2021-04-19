@@ -16,7 +16,7 @@ spec:
   image: minio/minio:RELEASE.2021-04-06T23-11-00Z
   imagePullPolicy: IfNotPresent
   credsSecret:
-    name: garu-minio-creds-secret
+    name: garu-creds-secret
   pools:
     - servers: 4
       volumesPerServer: 4

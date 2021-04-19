@@ -1,5 +1,5 @@
 kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
-  - minio-credentials.yml
   - cluster.yml
+  - minio-credentials.yml

@@ -1,4 +1,31 @@
 ---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minio
+  namespace: minio-operator
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    #nginx.ingress.kubernetes.io/enable-cors: "true"
+    kubernetes.io/ingress.class: "nginx"
+
+spec:
+  rules:
+    - host: minio.garu.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: minio-hl
+                port:
+                  number: 9000
+  tls:
+    - hosts:
+        - minio.garu.io
+      secretName: minio-garu-tls
+---
 ## MinIO Tenant Definition
 apiVersion: minio.min.io/v2
 kind: Tenant

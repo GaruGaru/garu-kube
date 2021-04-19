@@ -20,5 +20,14 @@ spec:
   pools:
     - servers: 4
       volumesPerServer: 4
-      size: 10Gi
-      storageClassName: local-path
+      volumeClaimTemplate:
+        metadata:
+          name: data
+        spec:
+          storageClassName: local-path
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 4Gi
+

@@ -6,4 +6,4 @@ resources:
   - ../../base/garu-github-bot
   - ../../base/minio-operator
   - dydns/
-  - minio/
+#  - minio/

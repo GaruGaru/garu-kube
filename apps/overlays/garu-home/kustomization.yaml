@@ -7,3 +7,4 @@ resources:
   - ../../base/minio-operator
   - dydns/
   - minio/
+  - ../../base/adguard-home

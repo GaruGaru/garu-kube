@@ -52,25 +52,25 @@ spec:
     service:
       port:
         port: 3000
-        additionalServices:
-          - enabled: true
-            nameSuffix: dns-tcp
-            type: NodePort
-            port:
-              port: 53
-              name: dns-tcp
-              protocol: TCP
-              targetPort: 53
-            externalTrafficPolicy: Local
-          - enabled: true
-            nameSuffix: dns-udp
-            type: NodePort
-            port:
-              port: 53
-              name: dns-udp
-              protocol: UDP
-              targetPort: 53
-            externalTrafficPolicy: Local
+      additionalServices:
+        - enabled: true
+          nameSuffix: dns-tcp
+          type: NodePort
+          port:
+            port: 53
+            name: dns-tcp
+            protocol: TCP
+            targetPort: 53
+          externalTrafficPolicy: Local
+        - enabled: true
+          nameSuffix: dns-udp
+          type: NodePort
+          port:
+            port: 53
+            name: dns-udp
+            protocol: UDP
+            targetPort: 53
+          externalTrafficPolicy: Local
 
     persistence:
       config:

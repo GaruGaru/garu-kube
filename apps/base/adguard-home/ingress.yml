@@ -27,7 +27,7 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
 spec:
   rules:
-    - host: dns.garu.io
+    - host: adguard.garu.io
       http:
         paths:
           - path: /
@@ -39,6 +39,6 @@ spec:
                   number: 3000
   tls:
     - hosts:
-        - adguard-home.garu.io
-      secretName: adguard-home-tls
+        - adguard.garu.io
+      secretName: adguard-tls
 

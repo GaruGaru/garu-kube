@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: adguard-home-tls
+  namespace: adguard-home
+spec:
+  ports:
+    - name: http
+      port: 853
+      protocol: TCP
+      targetPort: 853
+  selector:
+    app: garu-io
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: adguard-home
+  namespace: adguard-home
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: dns.garu.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: adguard-home
+                port:
+                  number: 3000
+  tls:
+    - hosts:
+        - adguard-home.garu.io
+      secretName: adguard-home-tls
+

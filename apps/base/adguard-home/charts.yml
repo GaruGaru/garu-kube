@@ -61,7 +61,7 @@ spec:
             name: dns-over-tls
             protocol: TCP
             targetPort: 853
-          externalTrafficPolicy: Local
+          externalTrafficPolicy: Cluster
         - enabled: true
           nameSuffix: dns-tcp
           type: NodePort
@@ -70,7 +70,7 @@ spec:
             name: dns-tcp
             protocol: TCP
             targetPort: 53
-          externalTrafficPolicy: Local
+          externalTrafficPolicy: Cluster
         - enabled: true
           nameSuffix: dns-udp
           type: NodePort
@@ -79,7 +79,7 @@ spec:
             name: dns-udp
             protocol: UDP
             targetPort: 53
-          externalTrafficPolicy: Local
+          externalTrafficPolicy: Cluster
 
     persistence:
       config:

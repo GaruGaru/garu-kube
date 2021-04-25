@@ -60,5 +60,5 @@ spec:
   tls:
     - hosts:
         - minio.garu.io
-      secretName: minio-garu-tls
+      secretName: minio-cluster-tls
 ---

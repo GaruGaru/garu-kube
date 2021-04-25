@@ -47,7 +47,7 @@ metadata:
 
 spec:
   rules:
-    - host: minio.garu.io
+    - host: s3.garu.io
       http:
         paths:
           - path: /
@@ -59,6 +59,6 @@ spec:
                   number: 9000
   tls:
     - hosts:
-        - minio.garu.io
-      secretName: minio-cluster-tls
+        - s3.garu.io
+      secretName: minio-s3-cluster-tls
 ---

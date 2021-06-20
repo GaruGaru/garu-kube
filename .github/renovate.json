@@ -1,32 +1,48 @@
 {
-  "assignees": ["@GaruGaru"],
-  "branchPrefix": "dep-update/",
+  "assignees": [
+    "@GaruGaru"
+  ],
+  "branchPrefix": "renovate/",
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "Renovate Dashboard",
   "enabled": true,
-  "extends": ["config:base", ":gitSignOff"],
+  "extends": [
+    "config:base",
+    ":gitSignOff"
+  ],
   "gitAuthor": "Renovate Bot <renovate@whitesourcesoftware.com>",
-  "logLevel": "debug",
   "platform": "github",
   "prConcurrentLimit": 0,
   "prHourlyLimit": 0,
   "rebaseWhen": "conflicted",
-  "repositories": ["GaruGaru/garu-kube"],
+  "repositories": [
+    "garugaru/garu-kube"
+  ],
   "requireConfig": false,
   "reviewersFromCodeOwners": false,
   "semanticCommits": "enabled",
-  "suppressNotifications": ["prIgnoreNotification"],
+  "suppressNotifications": [
+    "prIgnoreNotification"
+  ],
   "timezone": "Europe/Rome",
   "kubernetes": {
-    "fileMatch": [".k8s.+\\.(yaml|yml)$"],
+    "fileMatch": [
+      "(.+)/k8s.(.+)\\.(yaml|yml)$"
+    ],
     "ignorePaths": [
-      "bootstrap/"
+      "k8s/clusters/"
     ]
   },
-  "helm-values": {"fileMatch": ["(.+)charts.yml"]},
+  "helm-values": {
+    "fileMatch": [
+      "(.+)/helm.(.+)\\.(yaml|yml)$"
+    ]
+  },
   "regexManagers": [
     {
-      "fileMatch": ["charts.yml"],
+      "fileMatch": [
+        "(.+)/helm.(.+)\\.(yaml|yml)$"
+      ],
       "matchStrings": [
         "registryUrl=(?<registryUrl>.*?)\n *chart: (?<depName>.*?)\n *version: (?<currentValue>.*)\n"
       ],
@@ -35,52 +51,104 @@
   ],
   "packageRules": [
     {
-      "automerge": true,
+      "automerge": false,
       "requiredStatusChecks": null,
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["patch"]
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ]
     },
     {
-      "labels": ["renovate/image-release", "dependency/major"],
+      "labels": [
+        "renovate/image-release",
+        "dependency/major"
+      ],
       "enabled": true,
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major"]
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ]
     },
     {
-      "labels": ["renovate/image-release", "dependency/minor"],
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor"]
+      "labels": [
+        "renovate/image-release",
+        "dependency/minor"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ]
     },
     {
-      "labels": ["renovate/image-release", "dependency/patch"],
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["patch"]
+      "labels": [
+        "renovate/image-release",
+        "dependency/patch"
+      ],
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ]
     },
     {
       "commitMessageTopic": "Helm chart {{depName}}",
       "separateMinorPatch": true,
-      "matchDatasources": ["helm"]
+      "matchDatasources": [
+        "helm"
+      ]
     },
     {
-      "automerge": true,
+      "automerge": false,
       "requiredStatusChecks": null,
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["patch"]
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ]
     },
     {
-      "labels": ["renovate/helm-release", "dependency/major"],
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["major"]
+      "labels": [
+        "renovate/helm-release",
+        "dependency/major"
+      ],
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ]
     },
     {
-      "labels": ["renovate/helm-release", "dependency/minor"],
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["minor"]
+      "labels": [
+        "renovate/helm-release",
+        "dependency/minor"
+      ],
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ]
     },
     {
-      "labels": ["renovate/helm-release", "dependency/patch"],
-      "matchDatasources": ["helm"],
-      "matchUpdateTypes": ["patch"]
+      "labels": [
+        "renovate/helm-release",
+        "dependency/patch"
+      ],
+      "matchDatasources": [
+        "helm"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ]
     }
   ]
 }

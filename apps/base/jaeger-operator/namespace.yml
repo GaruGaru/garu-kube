@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: jaeger
+  name: jaeger-operator
   labels:
-    namespace: jaeger
+    namespace: jaeger-operator
 ---

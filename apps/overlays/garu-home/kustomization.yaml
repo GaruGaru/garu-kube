@@ -8,3 +8,5 @@ resources:
   - dydns/
   - minio/
   - ../../base/adguard-home
+  - ../../base/jaeger-operator
+  - jaeger/

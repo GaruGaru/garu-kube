@@ -5,6 +5,7 @@ metadata:
   name: jaeger
   namespace: jaeger-operator
 spec:
+  strategy: production
   agent:
     strategy: DaemonSet
   storage:

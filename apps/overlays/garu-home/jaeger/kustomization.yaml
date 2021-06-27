@@ -1,4 +1,5 @@
 kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 resources:
+  - namespace.yml
   - k8s.jaeger.yml

@@ -26,6 +26,12 @@ spec:
         name: jaeger
         namespace: flux-system
       interval: 10m
+  values:
+    rbac:
+      create: true
+      clusterRole: true
+
+
   test:
     enable: false # Enable helm test
   install:

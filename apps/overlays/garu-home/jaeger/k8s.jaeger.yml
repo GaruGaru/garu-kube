@@ -7,7 +7,11 @@ metadata:
 spec:
   strategy: production
   agent:
+    image: garugaru/jaeger-agent:latest
     strategy: DaemonSet
+  collector:
+    image: garugaru/jaeger-collector:latest
+
   storage:
     type: badger
   ingress:

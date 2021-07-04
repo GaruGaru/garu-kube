@@ -43,3 +43,4 @@ spec:
   values:
     namespace: kyverno
     replicaCount: 2
+---

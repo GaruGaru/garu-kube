@@ -2,10 +2,12 @@
 apiVersion: jaegertracing.io/v1
 kind: Jaeger
 metadata:
-  name: jaeger-01
+  name: jaeger
   namespace: jaeger-operator
 spec:
   strategy: production
+  allInOne:
+    image: garugaru/all-in-one:latest
   agent:
     image: garugaru/jaeger-agent:latest
     strategy: DaemonSet

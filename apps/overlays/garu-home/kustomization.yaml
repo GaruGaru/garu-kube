@@ -4,9 +4,9 @@ resources:
   - ../../base/garu-io
   - ../../base/breeze
   - ../../base/garu-github-bot
-  - ../../base/minio-operator
+  #- ../../base/minio-operator
+  #- minio/
   - dydns/
-  - minio/
   - ../../base/adguard-home
   - ../../base/jaeger-operator
   - jaeger/

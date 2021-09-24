@@ -7,6 +7,6 @@ resources:
   #- ../../base/minio-operator
   #- minio/
   - dydns/
-  - ../../base/adguard-home
+  #- ../../base/adguard-home
   - ../../base/jaeger-operator
   - jaeger/

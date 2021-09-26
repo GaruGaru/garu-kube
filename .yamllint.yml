@@ -1,0 +1,18 @@
+ignore: |
+  **/.terraform/**
+
+extends: default
+
+rules:
+  line-length: disable
+  document-start: disable
+  indentation: disable
+  new-line-at-end-of-file: disable
+  comments: disable
+  empty-lines:
+    max: 3
+    max-start: 3
+    max-end: 3
+  brackets:
+    max-spaces-inside: 1
+  comments-indentation: disable

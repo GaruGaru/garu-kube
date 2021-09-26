@@ -18,3 +18,4 @@ patchesStrategicMerge:
   - patch.ingress-nginx.yml
 #  - patch.metrics-server.yml
   - patch.prometheus.yml
+  - patch.storage.yml

@@ -46,7 +46,7 @@ spec:
         ruleSelectorNilUsesHelmValues: false
         externalUrl: ""
         nodeSelector:
-          "kubernetes.io/hostname": "rpi4-01"
+          "garu.io/storage-type": "ssd"
 
         retention: 2d
         retentionSize: 5GiB

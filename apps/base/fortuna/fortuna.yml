@@ -44,4 +44,4 @@ spec:
     kind: GitRepository
     name: fortuna
   validation: client
-----
+---

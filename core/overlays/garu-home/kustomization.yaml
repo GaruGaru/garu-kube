@@ -16,5 +16,5 @@ resources:
 patchesStrategicMerge:
   - patch.metal-lb.yml
   - patch.ingress-nginx.yml
-  - patch.metrics-server.yml
+#  - patch.metrics-server.yml
   - patch.prometheus.yml

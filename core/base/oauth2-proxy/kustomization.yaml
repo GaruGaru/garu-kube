@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - namespace.yml
   - k8s.repository.yml
-  - helmrelease.oauth2-proxy.yml
+  - helm.oauth2-proxy.yml

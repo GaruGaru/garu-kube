@@ -7,9 +7,7 @@ resources:
   - ../../base/ingress-nginx
   - ../../base/flux-system
   - ../../base/storage/local-path-provisioner
+  - ../../base/monitoring/prometheus
   # - ../../base/storage/longhorn
   # - ../../base/kyverno
   # - ../../base/policies
-  - cert-manager/
-  - oauth2-proxy/
-  - ../../base/monitoring/prometheus

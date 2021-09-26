@@ -9,5 +9,5 @@ jobs:
         uses: actions/checkout@v2
       - name: e2e test
         run: |
-          echo $TEST_SSH_PRIVATE_KEY > ssh/id_rsa
+          mkdir ssh/ && echo $TEST_SSH_PRIVATE_KEY > ssh/id_rsa
           BRANCH=${{ github.ref }} ./scripts/flux-kind-e2e.sh

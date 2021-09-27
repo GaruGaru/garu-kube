@@ -4,10 +4,11 @@ resources:
   - ../../base/garu-io
   - ../../base/breeze
   - ../../base/fortuna
+  - ../../base/jaeger-operator
+  - ../../base/kubegres
+  - dydns/
+  - jaeger/
+  #- ../../base/adguard-home
   #- ../../base/garu-github-bot
   #- ../../base/minio-operator
   #- minio/
-  - dydns/
-  #- ../../base/adguard-home
-  - ../../base/jaeger-operator
-  - jaeger/

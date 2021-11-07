@@ -24,17 +24,13 @@ spec:
         metadata:
           name: data
         spec:
-          nodeSelector:
-            "garu.io/storage-type": "ssd"
           storageClassName: local-path
           accessModes:
             - ReadWriteOnce
           resources:
             requests:
               storage: 4Gi
-  console:
-    consoleSecret:
-      name: garu-console-secret
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

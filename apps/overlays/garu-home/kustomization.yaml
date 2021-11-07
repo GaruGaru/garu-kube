@@ -6,9 +6,9 @@ resources:
   - ../../base/fortuna
   - ../../base/jaeger-operator
   - ../../base/kubegres
+  - ../../base/minio-operator
   - dydns/
   - jaeger/
   - minio/
   #- ../../base/adguard-home
   #- ../../base/garu-github-bot
-  #- ../../base/minio-operator

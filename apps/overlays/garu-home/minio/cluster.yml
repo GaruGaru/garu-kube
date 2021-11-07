@@ -18,12 +18,14 @@ spec:
   credsSecret:
     name: garu-creds-secret
   pools:
-    - servers: 4
-      volumesPerServer: 4
+    - servers: 1
+      volumesPerServer: 1
       volumeClaimTemplate:
         metadata:
           name: data
         spec:
+          nodeSelector:
+            "garu.io/storage-type": "ssd"
           storageClassName: local-path
           accessModes:
             - ReadWriteOnce

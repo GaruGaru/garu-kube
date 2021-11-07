@@ -8,7 +8,7 @@ resources:
   - ../../base/kubegres
   - dydns/
   - jaeger/
+  - minio/
   #- ../../base/adguard-home
   #- ../../base/garu-github-bot
   #- ../../base/minio-operator
-  #- minio/

@@ -8,6 +8,4 @@ resources:
   - ../../base/flux-system
   - ../../base/storage/local-path-provisioner
   - ../../base/monitoring/prometheus
-  # - ../../base/storage/longhorn
-  # - ../../base/kyverno
-  # - ../../base/policies
+  - ../../base/metrics-server

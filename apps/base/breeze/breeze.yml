@@ -27,7 +27,7 @@ spec:
       containers:
         - name: breeze
           image: garugaru/breeze:latest
-          command: ["breeze", "controller", "--target-temperature=65", "--temperature-cooldown-percent=20", "--quiet-hours=23-8"]
+          command: ["breeze", "controller", "--target-temperature=67", "--temperature-cooldown-percent=15", "--quiet-hours=23-8"]
           imagePullPolicy: Always
           ports:
             - containerPort: 9999

@@ -12,6 +12,8 @@ metadata:
     prometheus.io/scrape: "true"
 
 spec:
+  credsSecret:
+    name: garu-creds-secret
   ## Enable S3 specific features such as Bucket DNS which would allow `buckets` to be
   ## accessible as DNS entries of form `<bucketname>.minio.namespace.svc.cluster.local`
   s3:

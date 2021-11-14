@@ -18,3 +18,22 @@ spec:
     type: Opaque
 
 ---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: garu-creds-secret
+  namespace: minio-operator
+spec:
+  encryptedData:
+    accesskey: AgBtKDgz8nu0FTOoUAhAJKOXFjwwFniiQSsNc5vAL/5+Hpxgo6uGFC/QDyVlEWjuHxdbtRy2DueBMn/hfSlIaR0yn4n00dCJZgU9x3P/FCm7kLQrprUEMbbZ6D6HT06XRDSzU2XEhfkc4AGyCzUWfNXeCi4YNjoIs9YYM14eJkIxRg1fmuq91/vGGny6HWNPzklsDOp6xFE646kIkO4iIdqgsEYiCr2H14R8yGrpA9H9zhdbaSRVkynOKmjtVkV9WD46mfMdVaa66lSS5TAhrffPRWEt2O6T4nt0kHHdn66myP8nxUvqNcn1QNQGuVQnnSxrrPlAbh9Zu27NGPrn/UkHjtomBKNYCChLw37VVue7qwVYYyf7YymKP/x6AZkVpFTvYdy08K1IT0WcS2ujLb18w56J2az0Xez84IslnILROeAPiG84V/ESCJ74yYJoO9aOmMkvhU/BUIvHzZdJUy85ObDGK1NJlGczmuolnh5f1GmNHrCYP1hSKyozqVnWNlsyJLGOVIFRv/s5PzveUrKik9Lcu9vRYuP/IBN1aA48SNbwxxUkYDw3kzgfkXpYWW687xcK5EPCwNfnsS4GBr/59dlo7QJ+TBdmUzEwzUT5OB/gpZwz0rc1zlvDfXM48I6buXBgTpdUOrl0Og7aYISKHQ8f3iA/UARht4FZIp8OjVqCYPw4cYx8tkZ6GPdbAcGziDmOBXj9Je9B
+    secretkey: AgB9GGKUsQBHXFnS8iynFzU522/juZbwd76/Jt6NszioFJqydKLty7mTvyX5RCTXPrl7XG0PCPhwCf8X0RqxtY3fY1iw7b12JVTPS/frX9m9UyY8P2k+uRngFsvQgIXKFzGIUdCquCQKXt4DVZm8duw7VEN3aJRRTEkvvXJxoj7+U/DCmubg+TN4Y0+VbrYoEzn8U3cMMjpnmrLeOXW6Zs3C9hhMBhjTbv3d8hhpV2PPYIojTU5mp3h1zsS7hb3UF42EMwcK6MN5BJS9NKzMi3hihR/02AzQQ/ypoqkwaIknbj/Hvfa8RpCz228bAg+nVE/qpZxvSAHFE09FPKiu8dr1Qz2pWVziUlnlA3ymTOIOFqzE8/gETLeWgggPsB3m9Txsm4VpR5fA+N69CJa5owHds8SfPLPigjnqrqnI3+JeXFrDLR6eGmDBR1f6K+IHq5Reea9yercYChoDAlF4GbUmuWx82JQcVSsxwKesyitBXj6Qwzpn1wqBy5GrhKkSg5UrS26L7blSxjaQUu/3gtug0bfrxSgWtbKqefnO5fyijpqywkLuPSkaJoz9ojy2K4HOywUz5s4Wnh1ocj24OUOMIa81AsKrgdMzBgw8dR8LhJmFtFW4vcrPwEC6EK02KJuG19s0+r1nw8Mqs5wEI46+Qze/tX3Z77QyDK4f+RrihO3yr7HS+yOb3tSpfdkYdaY9k/gLNpQe2PArigW30w==
+  template:
+    data: null
+    metadata:
+      creationTimestamp: null
+      name: garu-creds-secret
+      namespace: minio-operator
+    type: Opaque
+
+---

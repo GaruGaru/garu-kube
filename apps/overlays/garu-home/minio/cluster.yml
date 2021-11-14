@@ -67,9 +67,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: minio-hl
+                name: minio
                 port:
-                  number: 9000
+                  number: 80
   tls:
     - hosts:
         - s3.garu.io

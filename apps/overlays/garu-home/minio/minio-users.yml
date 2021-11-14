@@ -38,13 +38,9 @@ spec:
 ---
 apiVersion: v1
 data:
-  ## Tenant credentials, base64 encoded (cat config.env | base64)
-  ##  export MINIO_ROOT_USER="minio"
-  ##  export MINIO_ROOT_PASSWORD="minio123"
-  ##  export MINIO_STORAGE_CLASS_STANDARD="EC:2"
-  ## s
-  config.env: IGV4cG9ydCBNSU5JT19CUk9XU0VSPSJvbiIKIGV4cG9ydCBNSU5JT19TRVJWRVJfVVJMPSJodHRw
-  czovL3MzLmdhcnUuaW8i
+  config.env: |-
+    ZXhwb3J0IE1JTklPX0JST1dTRVI9Im9uIgpleHBvcnQgTUlOSU9fU0VSVkVSX1VSTD0iaHR0cHM6
+    Ly9zMy5nYXJ1LmlvIg==
 kind: Secret
 metadata:
   name: storage-configuration

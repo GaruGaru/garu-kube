@@ -9,6 +9,6 @@ resources:
   - ../../base/minio-operator
   - dydns/
   - jaeger/
-  - minio/
+  #- minio/
   #- ../../base/adguard-home
   #- ../../base/garu-github-bot

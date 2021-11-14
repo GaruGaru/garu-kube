@@ -12,6 +12,8 @@ metadata:
     prometheus.io/scrape: "true"
 
 spec:
+  configuration:
+    name: storage-configuration
   credsSecret:
     name: garu-creds-secret
   ## Enable S3 specific features such as Bucket DNS which would allow `buckets` to be
@@ -74,7 +76,6 @@ spec:
     - hosts:
         - s3.garu.io
       secretName: minio-s3-cluster-tls
----
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress

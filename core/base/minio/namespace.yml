@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: minio-operator
+  name: minio
   labels:
-    namespace: minio-operator
+    namespace: minio
 ---

@@ -11,3 +11,4 @@ patchesStrategicMerge:
 #  - patch.metrics-server.yml
   - patch.prometheus.yml
   - patch.storage.yml
+  - patch.minio.yml

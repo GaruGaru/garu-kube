@@ -14,7 +14,7 @@ spec:
       accessMode: ReadWriteOnce
       size: 200Gi
     environment:
-      MINIO_SERVER_URL=https://s3.garu.io
+      MINIO_SERVER_URL: https://s3.garu.io
     ingress:
       enabled: true
       annotations:

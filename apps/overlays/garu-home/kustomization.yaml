@@ -6,7 +6,7 @@ resources:
   - ../../base/fortuna
   - ../../base/jaeger-operator
   - ../../base/kubegres
-  - ../../base/minio-operator
+  - ../../../core/base/minio-operator
   - dydns/
   - jaeger/
   #- minio/

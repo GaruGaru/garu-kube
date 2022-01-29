@@ -9,3 +9,4 @@ resources:
   - ../../base/storage/local-path-provisioner
   - ../../base/monitoring/prometheus
   - ../../base/metrics-server
+  - ../../base/minio

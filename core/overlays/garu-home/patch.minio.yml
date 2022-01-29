@@ -55,15 +55,7 @@ spec:
         memory: 1Gi
 
     users: [ ]
-
-
-    ## List of buckets to be created after minio install
-    ##
-    buckets:
-      - name: public
-      - name: books
-      - name: misc
-
+    buckets: []
 
     metrics:
       serviceMonitor:

@@ -61,12 +61,8 @@ spec:
     ##
     buckets:
       - name: public
-        policy: public
-        purge: false
       - name: books
-        purge: false
       - name: misc
-        purge: false
 
 
     metrics:

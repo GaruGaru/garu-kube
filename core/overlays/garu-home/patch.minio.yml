@@ -6,6 +6,7 @@ metadata:
 spec:
   values:
     mode: standalone
+    replicas: 1
     existingSecret: "minio-credentials" # minio/credentials.yml
     persistence:
       enabled: true

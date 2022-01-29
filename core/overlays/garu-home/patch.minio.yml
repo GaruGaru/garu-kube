@@ -12,7 +12,7 @@ spec:
       enabled: true
       storageClass: "local-path"
       accessMode: ReadWriteOnce
-      size: 200Gi
+      size: 1Gi
 
     ingress:
       enabled: true
@@ -47,9 +47,8 @@ spec:
     ## Node labels for pod assignment
     ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
     ##
-    nodeSelector: { }
-    tolerations: [ ]
-    affinity: { }
+    nodeSelector:
+      kubernetes.io/hostname: "rpi-04-01"
 
     resources:
       requests:

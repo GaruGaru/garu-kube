@@ -63,13 +63,10 @@ spec:
       - name: public
         policy: public
         purge: false
-        versioning: false
       - name: books
         purge: false
-        versioning: false
       - name: misc
         purge: false
-        versioning: false
 
 
     metrics:

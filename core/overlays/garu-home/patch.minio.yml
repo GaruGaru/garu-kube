@@ -15,6 +15,7 @@ spec:
       size: 200Gi
     environment:
       MINIO_SERVER_URL: https://s3.garu.io
+      MINIO_BROWSER_REDIRECT_URL: https://s3.garu.io
     ingress:
       enabled: true
       annotations:

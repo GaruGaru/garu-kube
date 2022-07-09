@@ -8,12 +8,12 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://charts.jetstack.io
+      # renovate: registryUrl=https://charts.bitnami.com/bitnami
       chart: metallb
       version: 3.0.10
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: metal-lb
         namespace: flux-system
       interval: 10m
   test:

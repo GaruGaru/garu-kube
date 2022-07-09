@@ -7,11 +7,6 @@ metadata:
 spec:
   values:
     controller:
-      image:
-        registry: docker.io
-        repository: metallb/controller
-        tag: main
-
       resources:
         limits:
           cpu: 100m
@@ -20,12 +15,7 @@ spec:
           memory: 25Mi
           cpu: 25m
 
-
     speaker:
-      image:
-        registry: docker.io
-        repository: metallb/speaker
-        tag: main
       resources:
         limits:
           cpu: 100m

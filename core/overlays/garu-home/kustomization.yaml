@@ -5,6 +5,7 @@ resources:
   - ../base
   - ./cert-manager/
   - ./oauth2-proxy/
+  - ./links/
 patchesStrategicMerge:
   - patch.metal-lb.yml
   - patch.ingress-nginx.yml

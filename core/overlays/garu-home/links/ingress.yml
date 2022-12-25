@@ -1,0 +1,36 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: garu-io-links
+  namespace: garu-links
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+         rewrite /ig https://www.instagram.com/garupolitics;
+         rewrite /cv https://my.visualcv.com/tommaso-garuglieri;
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: "garu.io"
+      http:
+        paths:
+          - path: /cv
+            pathType: Exact
+            backend:
+              service:
+                name: garu-io
+                port:
+                  number: 80
+          - path: /ig
+            pathType: Exact
+            backend:
+              service:
+                name: garu-io
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - garu.io
+      secretName: garu-io-cert
+---

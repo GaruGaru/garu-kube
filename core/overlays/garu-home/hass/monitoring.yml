@@ -25,7 +25,7 @@ spec:
     - bearerTokenSecret:
         key: token
         name: hass-api-token
-      port: metrics
+      port: http
       path: /api/prometheus
       interval: 60s
   namespaceSelector:

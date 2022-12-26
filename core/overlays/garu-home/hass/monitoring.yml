@@ -19,7 +19,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: hass
-  namespace: prometheus
+  namespace: hass
 spec:
   endpoints:
     - bearerTokenSecret:

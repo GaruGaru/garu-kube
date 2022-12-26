@@ -34,7 +34,6 @@ spec:
           nginx.ingress.kubernetes.io/proxy-body-size: "0"
         hosts:
           - grafana.garu.io
-
         tls:
           - secretName: grafana-general-tls
             hosts:

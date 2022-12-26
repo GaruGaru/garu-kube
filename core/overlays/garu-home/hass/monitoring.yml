@@ -1,0 +1,35 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: hass-api-token
+  namespace: hass
+spec:
+  encryptedData:
+    token: AgCTHygpc7PpcpV/0nfl3UmRT5B7hZG2aD00sK/Dm2SRzZDKzZFrTLbOx8Vrh8STsJvO36yJjuzGD1/R0qBxv4mMjRfPxfrgP6yFZWFiCkPNfq3eZJPpSl6yefqgpIDjJlrVqv7bKKoc0kVaCnC3dLNGzVkqT/LLSY1tymzet3MTq1FxfKipCIANVcsdWyAkaIPcO6Jyj8CvTOECb7DRXPPsmCqTWI6UMV765A3pIABn7/yQ6ca5emKXRwnOK4wu04zpykQSVlPUPezwpVuI6u9TkndnHOylznpiyY89aTSyB0Okpn6Lhfm/aJNQyNyOS2qBCS3rt5kd8zfkrjMsNfn5RqhPfN96Kcgg6E9v3PFGCt0m+FD531jbznI0p9Z4X4z4U8PdMK/6qau4eV3rO7hJgqftiHhLD5kobb/78eZELhj8JU7ha1jcgaDS8XVq6mP6arajnnwsrRiF2bw5rioSugbtRF9eTJ1rb9/Xg54ji+mWxU5Egyu/Lci37/uzTDVCtv3eCi+dp9bZImhGknT/8wHTOadTdvFHMCS5p4yepvGggSOytfa/avA4RefHA3B3RuMKrNC3E4ccViO8N6tnmKtiNhIxTG9r0OqHwFA7aHMPIKZBMq3ut4URWUlvyrpkU16UFPkGkVUWLbC8Lvy7K9pKqQNw0jbWkmDdygd1Vko/DY7rR5rtQh68jhe3gYkplG1e4ZSyZRUe6L/9SlPmXp6/9QRTu0nAHxqRX/en6EGe/Tgfr+0omwCI
+  template:
+    metadata:
+      creationTimestamp: null
+      name: hass-api-token
+      namespace: hass
+
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hass
+  namespace: prometheus
+spec:
+  endpoints:
+    - bearerTokenSecret: hass-api-token
+      port: metrics
+      path: /api/prometheus
+      interval: 60s
+  namespaceSelector:
+    matchNames:
+      - hass
+  selector:
+    matchLabels:
+      app: hass
+---

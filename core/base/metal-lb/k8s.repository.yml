@@ -6,6 +6,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 24h
-  url: https://charts.bitnami.com/bitnami
+  url: https://metallb.github.io/metallb
   timeout: 3m
 ---

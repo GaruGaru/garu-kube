@@ -19,10 +19,12 @@ metadata:
   name: hass
   namespace: hass
   labels:
+    kubernetes.io/service-name: hass
     app: hass
 subsets:
   - addresses:
       - ip: 192.168.1.4
     ports:
       - port: 8123
+        name: http
 ---

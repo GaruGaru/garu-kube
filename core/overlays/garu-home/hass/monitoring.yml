@@ -22,7 +22,9 @@ metadata:
   namespace: prometheus
 spec:
   endpoints:
-    - bearerTokenSecret: hass-api-token
+    - bearerTokenSecret:
+        key: token
+        name: hass-api-token
       port: metrics
       path: /api/prometheus
       interval: 60s

@@ -24,8 +24,8 @@ spec:
                 name: dydns
           resources:
             requests:
-              memory: "5Mi"
-              cpu: "10m"
+              memory: "15Mi"
+              cpu: "50m"
             limits:
               memory: "15Mi"
-              cpu: "20m"
+              cpu: "50m"

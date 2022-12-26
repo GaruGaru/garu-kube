@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - k8s.namespace.yml
   - k8s.external-service.yml
+  - k8s.service-monitor.yml
   - k8s.ingress.yml
-  - monitoring.yml

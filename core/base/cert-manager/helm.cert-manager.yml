@@ -3,7 +3,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: cert-manager
-  namespace: kube-system
+  namespace: cert-manager
 spec:
   interval: 5m
   chart:
@@ -30,4 +30,9 @@ spec:
     timeout: 10m
     recreate: true
     cleanupOnFail: true
+  values:
+    globaL:
+      leaderElection:
+        # Override the namespace used for the leader election lease
+        namespace: "cert-manager"
 ---

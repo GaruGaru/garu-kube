@@ -5,7 +5,7 @@ metadata:
   name: garu-io-frontend-api
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 10m0s
   ref:
     branch: master
   secretRef:
@@ -25,3 +25,4 @@ spec:
     kind: GitRepository
     name: garu-io-frontend-api
   validation: client
+---

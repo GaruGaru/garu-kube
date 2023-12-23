@@ -1,12 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - ../../base/inkture
   - ../../base/garu-io
   - ../../base/breeze
   - ../../base/jaeger-operator
-  - ../../base/kubegres
   - dydns/
   - jaeger/
-  #- minio/
-  #- ../../base/adguard-home
-  #- ../../base/garu-github-bot

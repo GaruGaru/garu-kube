@@ -47,7 +47,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Receiver
 metadata:
   name: github-inkture
-  namespace: inkture
+  namespace: flux-system
 spec:
   type: github
   events:
@@ -65,13 +65,13 @@ kind: SealedSecret
 metadata:
   creationTimestamp: null
   name: webhook-token
-  namespace: inkture
+  namespace: flux-system
 spec:
   encryptedData:
-    token: AgCYj6QCrYUAT8AM7lHENxNUxMqcWbhEobmtGGs3O6Rcef3VymBKi8IOuKKFxba9iDIdap2b/QTSkr1k8KYMX/xC6rBONqBvdCVEj5L69cJfDzUCLv2DgYfAKUkwf3/GUHobQzfW9ohlWBpk4RWPXkkx/hkSQne3mkD6+Ki6y/tQVK7kKbX/n85opp4YOrMdn/u7HjrYJr5h999rxgplOWyt6QqZOCO41j/TpTb6+/kjyhSt+0ZFMcaJmNnWLhoUEN/iPShT+3w91EvNY3FT9YMKUjmOWe1Z+bNVGDHaa3t6oMAS1lUqIJH8hhnE2KW6WOJSGzpfNvoBReaMSo2E5quGShd/kGiKhofeVA45x8K9C/N+GEnxlQOFoc1/3VccxCgKjEjMHOooXiCnENiEMELI0+rKSzzstyLGiyJ/woOWgfw4bt206STGdkf1xfNL42993KxYVmsCtwLQ71RWyT+TMvHS5fVOnAbE3bNW7NDkyZtt2Q3qjEDvJV0LUiDIgQBs1+Pnd1NG3RJzTt2SusE5Fis9hDY1N+rD66nhKdaSm2RmarrGg31kMu8m8RhCT/tOjyQZbdUOTYoQNgKJ0qPNY0Akr2noqwFgIVAwwboIV92K5dIPaVc1mkl9lEU2GfUGmxlr2//cpZ53Jqr1T8gDgZoQ/RIWR10d2DdolSU5YPfIlMVSmN4c8zXrRZwQD3Rhmzzsg81uN6h0P8L0rNsXSLVGCJ5GNrc5vM7BlIkncohN1tLf0w==
+    token: AgBFu59Zo922/8oFp+b9vpUx9SDZjDjgTExvQ0LqE0Nx5eQy53o9bEUXh3KrOg9Vn3ptUWaB4n+ylwZrk4V2Cb5DjUquTX3LwnXMJJ3sQn7Z+kLQqVHhIwkHlwD31kAcu0epYegzH3FESxD/8KdvOBADw6zceYlwK8WrBcTcNFyns0ogo+13EQqyi5KIB+v/vl4RGH67gHyotBXfohI1zixMDjmfv9CFYMvkfd8pCC+a0reHrtL6dHYx9mrPGMY4RdMz5B6LOyIe6EYAzqCVUmmTnTl+jeeExv+1jt5dl6587cnk3wWTxPw096lkyeQOYplqUZg+p2kBMtfu/WiKB3udOHv+wIe1G/PZ00S1L7hDDC+Sl69Ar/hPn9Bf+jCCZCJf4wxAW5llMHwGUm1LJ+RZTLvb940dhKbMDKb1rmMFL/bfr9dNLVmLJ2m0sYZBLacc7qFxhB04VlDKoQQep6I8CiNl7NiEL1W21cUJcCxCppMbMnTfXmKvxXMboMN88brHnmtYnk+frtkpsUAjYPRmhN0bX/SiYwlBYJygDT7iNZ/KtYWkIyb134073fboiX7O76k3JliVt9R842sBzeVZd7ROFYal8GTs/y9CroRSMEpCYCLaJJe53GX0GQDD/skYEUGmyG8ohVyYh29XRdt6uaakKopDAKbn8mN7hbCv0AdYogYSlXgigydORuILzeGXJbm73y1s2To8h7H53QM5WRsKKlKkkFSTfxdzAQ15WOQLhqf2TA==
   template:
     metadata:
       creationTimestamp: null
       name: webhook-token
-      namespace: inkture
+      namespace: flux-system
 ---

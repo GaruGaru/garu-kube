@@ -60,3 +60,18 @@ spec:
       kind: GitRepository
       name: inkture
 ---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: webhook-token
+  namespace: inkture
+spec:
+  encryptedData:
+    token: AgAkAg0yCDYvwKPa5GFJOXXIxTRVyDeTaKDi15mGUIinSShQIQLxQ5kXwUvFFK9q4KDDym+B2jNLB2LTJGDaelvmjAb0HQ78DoOUK82viOv4uBeqa/HuUznkm1N2Mf26VrwRC22dV2v83A3jvwfVec0JAgpwu8Y9TPyxUVyQ7oEpXupCq4688BY6Uy/RaRkuc8utMXq6oYbW27DYDE6KFrpQ4zz6s6DK26BAO3S4VNfwPLWfqDBpKtzE5yManBm4mdsDJZc/9HmqWMsHOv4WSKp1sPQ/HgPtsrnPU0fC/tRun4Fm+sIqS02WduxtazqSUmiWtDL5cnHeeUQnWx1iabwRxjL6K6yQIL2geeetTIKWdUaGjKxeqhGcuzjNr54Vi8RVquU828qEJHEW3C33VKddRechul0IMdipYFEJsQqHSXvzcHCT28A2cPOVnDrR42xaG1sLtvz5bvog4GiM4Lv7dQXQzEUvAo4DYU1Syyn5wYC56JKwzqZ/49f3rhbXS8MCjDPLccxpLLdJUrRqoLaT4YsNbQvO1E03aK/3ggkOeLku7d198RJJU1KDpsJURiUK5mOx4z3ZDaJKsTBbMM0pTZr9PY6YSuKeqX6E0p4DySQOS5IA/1GzrIZe+A7mBWbj8Z2MHR1MBTPMQWHclLOx70ac0vSGfofRgVYaPp3CVs0Ei6S3eo0Dwf/snn5VLLw9bhr3gZsbPGXnaPbPHWS42AiJnK4gJuikeqw/rSxPYdaI0eCiPw==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: webhook-token
+      namespace: flux-system
+---

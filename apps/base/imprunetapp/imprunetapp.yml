@@ -60,18 +60,3 @@ spec:
       kind: GitRepository
       name: imprunetapp
 ---
-apiVersion: bitnami.com/v1alpha1
-kind: SealedSecret
-metadata:
-  creationTimestamp: null
-  name: webhook-token
-  namespace: flux-system
-spec:
-  encryptedData:
-    token: AgBFu59Zo922/8oFp+b9vpUx9SDZjDjgTExvQ0LqE0Nx5eQy53o9bEUXh3KrOg9Vn3ptUWaB4n+ylwZrk4V2Cb5DjUquTX3LwnXMJJ3sQn7Z+kLQqVHhIwkHlwD31kAcu0epYegzH3FESxD/8KdvOBADw6zceYlwK8WrBcTcNFyns0ogo+13EQqyi5KIB+v/vl4RGH67gHyotBXfohI1zixMDjmfv9CFYMvkfd8pCC+a0reHrtL6dHYx9mrPGMY4RdMz5B6LOyIe6EYAzqCVUmmTnTl+jeeExv+1jt5dl6587cnk3wWTxPw096lkyeQOYplqUZg+p2kBMtfu/WiKB3udOHv+wIe1G/PZ00S1L7hDDC+Sl69Ar/hPn9Bf+jCCZCJf4wxAW5llMHwGUm1LJ+RZTLvb940dhKbMDKb1rmMFL/bfr9dNLVmLJ2m0sYZBLacc7qFxhB04VlDKoQQep6I8CiNl7NiEL1W21cUJcCxCppMbMnTfXmKvxXMboMN88brHnmtYnk+frtkpsUAjYPRmhN0bX/SiYwlBYJygDT7iNZ/KtYWkIyb134073fboiX7O76k3JliVt9R842sBzeVZd7ROFYal8GTs/y9CroRSMEpCYCLaJJe53GX0GQDD/skYEUGmyG8ohVyYh29XRdt6uaakKopDAKbn8mN7hbCv0AdYogYSlXgigydORuILzeGXJbm73y1s2To8h7H53QM5WRsKKlKkkFSTfxdzAQ15WOQLhqf2TA==
-  template:
-    metadata:
-      creationTimestamp: null
-      name: webhook-token
-      namespace: flux-system
----

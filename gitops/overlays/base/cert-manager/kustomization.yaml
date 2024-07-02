@@ -3,4 +3,3 @@ kind: Kustomization
 resources:
   - k8s.repository.yml
   - helm.cert-manager.yml
-  - crd.yml

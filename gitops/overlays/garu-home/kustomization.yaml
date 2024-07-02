@@ -4,7 +4,7 @@ resources:
   - ../base
   - ./cert-manager/
   - ./oauth2-proxy/
-  - ./links/
+ # - ./links/
   - ./hass/
 patches:
   - path: patch.metal-lb.yml

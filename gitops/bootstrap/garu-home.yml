@@ -6,10 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  dependsOn:
-    - name: core
   path: ./gitops/overlays/garu-home
-  prune: true
+  prune: false
   sourceRef:
     kind: GitRepository
     name: flux-system

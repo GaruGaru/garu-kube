@@ -1,8 +1,0 @@
----
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: adguard-home
-  labels:
-    namespace: adguard-home
----

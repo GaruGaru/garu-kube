@@ -1,5 +1,0 @@
-kind: Kustomization
-apiVersion: kustomize.config.k8s.io/v1beta1
-resources:
-  - kyverno_disallow-default-ns.yml
-  - kyverno_require-requests-limits.yml

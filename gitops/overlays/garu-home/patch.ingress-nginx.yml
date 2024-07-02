@@ -9,6 +9,7 @@ spec:
     controller:
       kind: DaemonSet
       hostNetwork: false
+      allowSnippetAnnotations: true
       service:
         externalTrafficPolicy: Cluster
       hostPort:

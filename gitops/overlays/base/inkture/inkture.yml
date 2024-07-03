@@ -15,7 +15,6 @@ spec:
       name: github-inkture
       namespace: flux-system
     type: Opaque
-
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
@@ -42,7 +41,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: inkture
-  validation: client
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Receiver

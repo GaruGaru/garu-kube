@@ -41,7 +41,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: imprunetapp
-  validation: client
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Receiver

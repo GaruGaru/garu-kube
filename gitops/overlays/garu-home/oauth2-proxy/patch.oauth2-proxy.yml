@@ -45,3 +45,5 @@ spec:
         memory: 30Mi
 
     replicaCount: 2
+    podDisruptionBudget:
+      enabled: false

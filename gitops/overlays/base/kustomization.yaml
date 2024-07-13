@@ -8,7 +8,6 @@ resources:
   - storage/local-path-provisioner
   - metrics-server
   - imprunetapp
-  - garu-io
   - breeze
   - inkture
   - dydns/

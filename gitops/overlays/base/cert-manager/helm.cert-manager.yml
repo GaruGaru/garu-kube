@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://charts.jetstack.io
       chart: cert-manager
-      version: v1.15.1
+      version: v1.18.2
       sourceRef:
         kind: HelmRepository
         name: jetstack
@@ -36,3 +36,4 @@ spec:
         # Override the namespace used for the leader election lease
         namespace: "cert-manager"
 ---
+

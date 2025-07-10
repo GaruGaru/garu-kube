@@ -5,3 +5,5 @@ metadata:
   name: oauth2-proxy
   labels:
     namespace: oauth2-proxy
+---
+

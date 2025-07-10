@@ -9,7 +9,6 @@ spec:
     controller:
       resources:
         limits:
-          cpu: 100m
           memory: 100Mi
         requests:
           memory: 25Mi
@@ -18,7 +17,6 @@ spec:
     speaker:
       resources:
         limits:
-          cpu: 100m
           memory: 100Mi
         requests:
           memory: 25Mi

@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://kubernetes.github.io/ingress-nginx
       chart: ingress-nginx
-      version: 4.10.1
+      version: 4.13.0
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx-charts
@@ -19,6 +19,7 @@ spec:
   test:
     enable: false # Enable helm test
   install:
+    timeout: 10m
     remediation: # perform remediation when helm install fails
       retries: 3
   upgrade:
@@ -50,3 +51,4 @@ spec:
           cpu: 500m
           memory: 150Mi
 ---
+

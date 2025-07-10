@@ -6,6 +6,7 @@ resources:
   - ./oauth2-proxy/
   # - ./links/
   - ./hass/
+  - ./k8s.metal-lb-pool.yml
 patches:
   - path: patch.metal-lb.yml
   - path: patch.ingress-nginx.yml

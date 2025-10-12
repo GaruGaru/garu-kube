@@ -1,5 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - breeze.yml
   - namespace.yml
+  - immich-user.yml
+  - immich-postgres.yml
+  - immich-pv.yml

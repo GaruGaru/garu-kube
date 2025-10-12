@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: immich-postgres-data
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  iscsi:
+    targetPortal: 192.168.1.5:3260
+    iqn: iqn.2025-10.local.nas:k8s-immich-postgres
+    lun: 0
+    fsType: ext4
+    readOnly: false

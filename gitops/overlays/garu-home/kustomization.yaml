@@ -7,6 +7,7 @@ resources:
   # - ./links/
   - ./hass/
   - ./k8s.metal-lb-pool.yml
+  - ./postgres
 patches:
   - path: patch.metal-lb.yml
   - path: patch.ingress-nginx.yml

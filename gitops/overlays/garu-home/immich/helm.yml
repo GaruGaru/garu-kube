@@ -1,0 +1,130 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: immich
+  namespace: immich
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://ghcr.io/immich-app/immich-charts/immich
+      chart: immich
+      version: 0.10.0
+      sourceRef:
+        kind: HelmRepository
+        name: immich
+        namespace: flux-system
+      interval: 60m
+  test:
+    enable: false # Enable helm test
+  install:
+    remediation: # perform remediation when helm install fails
+      retries: 3
+  upgrade:
+    remediation: # perform remediation when helm upgrade fails
+      retries: 3
+      remediateLastFailure: true # remediate the last failure, when no retries remain
+    cleanupOnFail: true
+  rollback:
+    timeout: 10m
+    recreate: true
+    cleanupOnFail: true
+  values:
+    controllers:
+      main:
+        containers:
+          main:
+            image:
+              tag: v2.0.0
+            env:
+              REDIS_HOSTNAME: '{{ printf "%s-valkey" .Release.Name }}'
+              IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
+              DB_URL: 'postgresql://immich:immich@immich-rw.default.svc.cluster.local:5432/immich?sslmode=require&sslmode=no-verify'
+
+    immich:
+      metrics:
+        # Enabling this will create the service monitors needed to monitor immich with the prometheus operator
+        enabled: false
+      persistence:
+        # Main data store for all photos shared between different components.
+        library:
+          # Automatically creating the library volume is not supported by this chart
+          # You have to specify an existing PVC to use
+          existingClaim: immich-data
+
+      # configuration is immich-config.json converted to yaml
+      # ref: https://immich.app/docs/install/config-file/
+      configuration:
+        machineLearning:
+          enabled: false
+        oauth:
+          autoLaunch: false
+          autoRegister: true
+          buttonText: Login with OAuth
+          clientId: ''
+          clientSecret: ''
+          defaultStorageQuota:
+          enabled: false
+          issuerUrl: ''
+          mobileOverrideEnabled: false
+          mobileRedirectUri: ''
+          scope: openid email profile
+          signingAlgorithm: RS256
+          profileSigningAlgorithm: none
+          storageLabelClaim: preferred_username
+          storageQuotaClaim: immich_quota
+        passwordLogin:
+          enabled: true
+        server:
+          externalDomain: 'https://photo.garu.io'
+          loginPageMessage: ''
+
+    # Dependencies
+    valkey:
+      enabled: true
+      controllers:
+        main:
+          containers:
+            main:
+              image:
+                repository: docker.io/valkey/valkey
+                tag: 8.1-alpine@sha256:e706d1213aaba6896c162bb6a3a9e1894e1a435f28f8f856d14fab2e10aa098b
+                pullPolicy: IfNotPresent
+      persistence:
+        data:
+          enabled: false
+
+    server:
+      enabled: true
+      controllers:
+        main:
+          containers:
+            main:
+              image:
+                repository: ghcr.io/immich-app/immich-server
+                pullPolicy: IfNotPresent
+      ingress:
+        main:
+          enabled: true
+          ingressClassName: nginx
+          annotations:
+            # proxy-body-size is set to 0 to remove the body limit on file uploads
+            nginx.ingress.kubernetes.io/proxy-body-size: "0"
+            cert-manager.io/cluster-issuer: "letsencrypt-prod"
+          hosts:
+            - host: photo.garu.io
+              paths:
+                - path: "/"
+                  service:
+                    identifier: main
+          tls:
+            - hosts:
+                - photo.garu.io
+              secretName: garu-io-photo-cert
+
+    machine-learning:
+      enabled: false
+
+---
+

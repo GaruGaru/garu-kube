@@ -1,0 +1,42 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: immich
+  namespace: postgres
+spec:
+  # At the time of writing, immich is only compatible with pgvecto.rs <0.4. Latest postgres image with that version is 16.5.
+  imageName: ghcr.io/tensorchord/cloudnative-vectorchord:16.9-0.4.3
+  # A bug was reported in v0.3.0, which does not allow a replicated setup:
+  # https://github.com/immich-app/immich-charts/issues/149#issuecomment-2559012759
+  instances: 1
+
+  postgresql:
+    shared_preload_libraries:
+      - "vchord.so"
+
+  enableSuperuserAccess: true
+
+  managed:
+    roles:
+      - name: immich
+        superuser: true
+        login: true
+        passwordSecret:
+          name: pg-user-immich
+
+  bootstrap:
+    initdb:
+      # TODO: Use managed extensions (pg 18)
+      postInitApplicationSQL:
+        # Commands based on: https://immich.app/docs/administration/postgres-standalone/#without-superuser-permission
+        - CREATE EXTENSION vchord CASCADE;
+        - CREATE EXTENSION earthdistance CASCADE;
+        - CREATE DATABASE immich;
+  storage:
+    pvcTemplate:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+      volumeName: immich-postgres-data

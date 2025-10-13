@@ -41,7 +41,7 @@ spec:
             env:
               REDIS_HOSTNAME: '{{ printf "%s-valkey" .Release.Name }}'
               IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
-              DB_URL: 'postgresql://immich:immich@immich-rw.default.svc.cluster.local:5432/immich?sslmode=require&sslmode=no-verify'
+              DB_URL: 'postgresql://immich:immich@immich-rw.postgres.svc.cluster.local:5432/immich?sslmode=require&sslmode=no-verify'
 
     immich:
       metrics:

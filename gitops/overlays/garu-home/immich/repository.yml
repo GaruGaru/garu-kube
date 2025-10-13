@@ -5,6 +5,7 @@ metadata:
   name: immich
   namespace: flux-system
 spec:
+  type: "oci"
   interval: 24h
   url: oci://ghcr.io/immich-app/immich-charts
   timeout: 3m

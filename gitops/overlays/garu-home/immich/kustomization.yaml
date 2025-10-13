@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - namespace.yml
   - pv-data.yml
+  - pvc-data.yml
   - repository.yml
   - helm.yml

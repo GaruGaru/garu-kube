@@ -29,7 +29,7 @@ spec:
     name: github-inkture
   url: ssh://git@github.com/garugaru/inkture.git
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: inkture

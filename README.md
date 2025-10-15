@@ -3,7 +3,7 @@
 <a href="https://k3s.io/" alt="k8s"><img src="https://img.shields.io/badge/k3s-v1.20.5-orange" /></a>
 </h1>
 
-
+    
 Self deploying kubernetes cluster using [flux](https://fluxcd.io/)
 
 ## Deploy workflow

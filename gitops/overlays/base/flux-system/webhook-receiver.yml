@@ -14,7 +14,7 @@ spec:
       name: webhook-token
       namespace: flux-system
 ---
-apiVersion: notification.toolkit.fluxcd.io/v1beta1
+apiVersion: notification.toolkit.fluxcd.io/v1
 kind: Receiver
 metadata:
   name: k8s-github
@@ -27,7 +27,7 @@ spec:
   secretRef:
     name: webhook-token
   resources:
-    - apiVersion: source.toolkit.fluxcd.io/v1beta1
+    - apiVersion: source.toolkit.fluxcd.io/v1
       kind: GitRepository
       name: flux-system
 ---
@@ -56,7 +56,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: flux-wb.garu.io
+    - host: flux.garu.io
       http:
         paths:
           - path: /
@@ -68,6 +68,6 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - flux-wb.garu.io
+        - flux.garu.io
       secretName: webhook-receiver-tls
 

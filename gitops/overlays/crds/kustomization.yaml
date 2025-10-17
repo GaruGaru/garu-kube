@@ -4,3 +4,4 @@ resources:
   - crd-certmanager.yml
   - crd-prometheus.yml
   - crd-cloudnative-pg.yml
+  - crd-sealed-secrets.yml

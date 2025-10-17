@@ -5,3 +5,4 @@ resources:
   - crd-prometheus.yml
   - crd-cloudnative-pg.yml
   - crd-sealed-secrets.yml
+  - crd-metallb.yml

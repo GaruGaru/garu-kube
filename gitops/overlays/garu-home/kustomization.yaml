@@ -8,6 +8,8 @@ resources:
   - ./hass/
   - ./k8s.metal-lb-pool.yml
   - ./postgres
+  - ./immich
+  - ./sealed-secrets
 patches:
   - path: patch.metal-lb.yml
   - path: patch.ingress-nginx.yml

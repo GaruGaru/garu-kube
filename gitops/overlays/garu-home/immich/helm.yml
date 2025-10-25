@@ -1,5 +1,5 @@
 ---
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: immich
@@ -8,7 +8,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://ghcr.io/immich-app/immich-charts/immich
+      # renovate: registryUrl=oci://ghcr.io/immich-app/immich-charts
       chart: immich
       version: 0.10.0
       sourceRef:
@@ -19,6 +19,7 @@ spec:
   test:
     enable: false # Enable helm test
   install:
+    timeout: 20m
     remediation: # perform remediation when helm install fails
       retries: 3
   upgrade:
@@ -40,7 +41,7 @@ spec:
             env:
               REDIS_HOSTNAME: '{{ printf "%s-valkey" .Release.Name }}'
               IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
-              DB_URL: 'postgresql://immich:immich@immich-rw.default.svc.cluster.local:5432/immich?sslmode=require&sslmode=no-verify'
+              DB_URL: 'postgresql://immich:immich@immich-rw.postgres.svc.cluster.local:5432/immich?sslmode=require&sslmode=no-verify'
 
     immich:
       metrics:
@@ -56,6 +57,30 @@ spec:
       # configuration is immich-config.json converted to yaml
       # ref: https://immich.app/docs/install/config-file/
       configuration:
+        job:
+          backgroundTask:
+            concurrency: 1
+          smartSearch:
+            concurrency: 1
+          metadataExtraction:
+            concurrency: 1
+          faceDetection:
+            concurrency: 1
+          search:
+            concurrency: 1
+          sidecar:
+            concurrency: 1
+          library:
+            concurrency: 1
+          migration:
+            concurrency: 1
+          thumbnailGeneration:
+            concurrency: 1
+          videoConversion:
+            concurrency: 1
+          notifications:
+            concurrency: 1
+
         machineLearning:
           enabled: false
         oauth:
@@ -107,7 +132,7 @@ spec:
       ingress:
         main:
           enabled: true
-          ingressClassName: nginx
+          className: nginx
           annotations:
             # proxy-body-size is set to 0 to remove the body limit on file uploads
             nginx.ingress.kubernetes.io/proxy-body-size: "0"

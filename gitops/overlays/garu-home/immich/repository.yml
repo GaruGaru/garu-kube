@@ -1,11 +1,12 @@
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta1
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: immich
   namespace: flux-system
 spec:
+  type: "oci"
   interval: 24h
-  url: https://ghcr.io/immich-app/immich-charts/immich
+  url: oci://ghcr.io/immich-app/immich-charts
   timeout: 3m
 ---

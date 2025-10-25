@@ -2,10 +2,10 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: metrics-server
+  name: sealed-secrets
   namespace: flux-system
 spec:
   interval: 24h
-  url: https://kubernetes-sigs.github.io/metrics-server/
+  url: https://bitnami-labs.github.io/sealed-secrets
   timeout: 3m
 ---

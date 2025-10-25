@@ -2,18 +2,18 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: cnpg
-  namespace: postgres
+  name: sealed-secrets
+  namespace: kube-system
 spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://cloudnative-pg.github.io/charts
-      chart: cloudnative-pg
-      version: 0.26.0
+      # renovate: registryUrl=https://bitnami-labs.github.io/sealed-secrets
+      chart: sealed-secrets
+      version: 2.17.7
       sourceRef:
         kind: HelmRepository
-        name: cnpg
+        name: sealed-secrets
         namespace: flux-system
       interval: 60m
   test:
@@ -30,5 +30,7 @@ spec:
     timeout: 10m
     recreate: true
     cleanupOnFail: true
+  values:
+    # Sealed secrets controller configuration
+    fullnameOverride: sealed-secrets-controller
 ---
-

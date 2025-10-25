@@ -2,19 +2,18 @@
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
-  creationTimestamp: null
   name: webhook-token
   namespace: flux-system
 spec:
   encryptedData:
-    token: AgBq4jLDvqQn2v0zx/z2P9swNWrve4ijjDPd2IT4CuOV8pp/nLWO42mFP9mTBe8rvvItSe6AIXCE8Yby0FoEECuc+WhsQsk1PPxX3+AfDetyjH5F8LDI0eXF6fgXrThcIwukfey683CS6iTYbeAuPtH9gQm5g1A+rVdYOV2MLrKoXPsLrHeeAtmY8WKpr/NDaZ7Pb1URhUbpgL59pRbgvH3Zo9n8KysRu/VBrD5woOvxshvTMnbkBg0RUl1yEv3C4gNYA1NvzuUTwfu51ZES8Aj8wUP5+H8MUcWpfBmnT75w0N1RrJnwoxTMZf7d/BrtkX3+DhefBdjvz+sk2V+2K4emztfClgFlWr5Bp5JcLG1LP1db2ViZww+E2qJEoUF5LwtsQ/UU6ttsRwfjO/lpsOU46+ECRGTvSvmn09mrQP1Pm3IuTUEEkqH3IIG/zJjgvyPuHNmuXml7HC+yL1+9rvNJS3jst5JzugPXGtWnWqrwH3kTeTh63v8XWpGEaHIr50b4Rx9NWzMjK+CBi5c5CaKywFKdeQHJVGPv1n4KUjxmmHLPfno5o8mz1qxNsUm+ZLywwM64IseO+wdJn5bXu8NFCHGy91htW7PpUjhh879/L4dL1OL29QpsFJMr26B1sp+CFZoH7MXtNsxOHnnoYUC40p0oguo+Kc8x1zxchZXLMT7HNl6EaE5quvgrQkSr6E31LjYkeqwUgf2pWK5HfTG7jyNlxWjMZVqcHG+fvieMXlPK9ZXSKw==
+    token: AgCfbfJAaf1n2ne0Y61oWEK+lhFrXFy5BVNrY1+xx+n2GTvAFUY/PDUcoyTfalJIWZFP1Z2Sjtwr6D3EkLvEcZO3MwUICPyu6s0FHgZtbNBzlM2+pN74bRrch57G59sakG7PI7x7lGrEkKzjpnS43rp2cmKrfmAbIxgDwrGwc3kO++uSSfUGSVMYlMiz/n/wt/VHEYQaqtl/slAbJdqt9BLfx7sxQtj6ShoWtnwDBLYEs3nExwiESp2bcLDbDgrAsLOfF8R00eIvvO8OQQWRqsSwnuV6yfPpMKdzovZNRW6AD27v0wBssSzckOhP2t4C0X5FeSoTMAWkV3PlZLikgiwpHZjrp3IcQW8JlXBCAcg/N/tURHPcJTfEie2HDf/56DGZeL9miCJJkGc0P/ND3YsDze186h4IQeDKbuKz2o+m6PKoGZ5goIjDaGJDmK0K0K/bYzih9ozmiUKAYLvp7RKa9welFwMDsFT1Pk96rD0jI0mBFixGmwtGUmHCwg4Sgffb7HJQoXX+webyCDVtDP7fjHCg5gVPE4C8o0/uytFFmzZjaXa+7z8DR4LMI+JSNvFK4l0Ih97LLsYlwkzhiMtJD2NUDWtTUarTpJf1Xsp/URs2S2pFDLC8g1mfDMsjp1Vf8Nw2Y8d0tIyK6eOe/x7xWOwvW+6rNG+FioD3m6bYDwcZjV5Cz/Dq2wlqRZKhvvpJ2444DpSZTmHfhvghm7hT/KtfCbMbW5N3mbQ5viaZsS84iBBySQ==
   template:
     metadata:
-      creationTimestamp: null
       name: webhook-token
       namespace: flux-system
+
 ---
-apiVersion: notification.toolkit.fluxcd.io/v1beta1
+apiVersion: notification.toolkit.fluxcd.io/v1
 kind: Receiver
 metadata:
   name: k8s-github
@@ -27,7 +26,7 @@ spec:
   secretRef:
     name: webhook-token
   resources:
-    - apiVersion: source.toolkit.fluxcd.io/v1beta1
+    - apiVersion: source.toolkit.fluxcd.io/v1
       kind: GitRepository
       name: flux-system
 ---
@@ -56,7 +55,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: flux-wb.garu.io
+    - host: flux.garu.io
       http:
         paths:
           - path: /
@@ -68,6 +67,6 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - flux-wb.garu.io
+        - flux.garu.io
       secretName: webhook-receiver-tls
 

@@ -42,7 +42,7 @@ spec:
     kind: GitRepository
     name: inkture
 ---
-apiVersion: notification.toolkit.fluxcd.io/v1beta1
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Receiver
 metadata:
   name: github-inkture

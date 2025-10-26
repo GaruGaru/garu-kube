@@ -16,7 +16,7 @@ spec:
       namespace: flux-system
     type: Opaque
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta1
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: imprunetapp
@@ -55,7 +55,7 @@ spec:
   secretRef:
     name: webhook-token
   resources:
-    - apiVersion: source.toolkit.fluxcd.io/v1beta1
+    - apiVersion: source.toolkit.fluxcd.io/v1
       kind: GitRepository
       name: imprunetapp
 ---

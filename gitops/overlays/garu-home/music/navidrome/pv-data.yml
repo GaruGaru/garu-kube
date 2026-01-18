@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: navidrome-data
+  namespace: music
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  iscsi:
+    targetPortal: 192.168.1.5:3260
+    iqn: iqn.2026-01.local.nas:k8s-navidrome
+    lun: 0
+    fsType: ext4
+    readOnly: false

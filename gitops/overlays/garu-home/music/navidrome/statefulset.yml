@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: navidrome
+  namespace: music
+spec:
+  serviceName: "navidrome"
+  replicas: 1 # DO NOT scale music servers > 1 due to SQLite
+  selector:
+    matchLabels:
+      app: navidrome
+  template:
+    metadata:
+      labels:
+        app: navidrome
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: navidrome
+          image: deluan/navidrome:0.59.0
+          env:
+            - name: ND_DATAFOLDER
+              value: "/data"
+            - name: ND_MUSICFOLDER
+              value: "/music/songs"
+            - name: ND_BASEURL
+              value: "https://music.garu.io"
+          volumeMounts:
+            - name: music-root
+              mountPath: /music
+            - name: navidrome-db
+              mountPath: /data
+      volumes:
+        - name: music-root
+          persistentVolumeClaim:
+            claimName: nfs-music-pvc
+        - name: navidrome-db
+          persistentVolumeClaim:
+            claimName: navidrome-data
+

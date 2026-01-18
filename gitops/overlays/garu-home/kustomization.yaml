@@ -10,6 +10,7 @@ resources:
   - ./postgres
   - ./immich
   - ./sealed-secrets
+  - ./music
 patches:
   - path: patch.metal-lb.yml
   - path: patch.ingress-nginx.yml

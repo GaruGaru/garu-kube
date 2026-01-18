@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: adguard
+  namespace: adguard
+spec:
+  serviceName: "adguard"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: adguard-home
+  template:
+    metadata:
+      labels:
+        app: adguard-home
+    spec:
+      containers:
+      - name: adguard-home
+        image: adguard/adguardhome:latest
+        ports:
+        - containerPort: 53
+          name: dns
+          protocol: UDP
+        - containerPort: 3000
+          name: http-initial
+          protocol: TCP
+        - containerPort: 80
+          name: ui
+          protocol: TCP
+        volumeMounts:
+        - name: adguard-data
+          mountPath: /opt/adguardhome/work/
+        - name: adguard-config
+          mountPath: /opt/adguardhome/conf/
+      volumes:
+        - name: adguard-config
+          persistentVolumeClaim:
+            claimName: adguard-config
+        - name: adguard-data
+          persistentVolumeClaim:
+            claimName: adguard-data

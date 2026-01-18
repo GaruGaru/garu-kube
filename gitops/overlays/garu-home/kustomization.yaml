@@ -11,6 +11,7 @@ resources:
   - ./immich
   - ./sealed-secrets
   - ./music
+  - ./adguard-home
 patches:
   - path: patch.metal-lb.yml
   - path: patch.ingress-nginx.yml

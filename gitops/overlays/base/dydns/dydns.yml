@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: dydns
-          image: garugaru/dydns:latest
+          image: garugaru/dydns:bb597c5ca522aeb0a88fa5e852507eb1f5897335
           imagePullPolicy: Always
           envFrom:
             - secretRef:

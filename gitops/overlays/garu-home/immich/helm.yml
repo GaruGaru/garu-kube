@@ -102,7 +102,7 @@ spec:
         passwordLogin:
           enabled: true
         server:
-          externalDomain: 'https://photo.garu.io'
+          externalDomain: 'https://photo.garu.me'
           loginPageMessage: ''
 
     # Dependencies
@@ -138,14 +138,14 @@ spec:
             nginx.ingress.kubernetes.io/proxy-body-size: "0"
             cert-manager.io/cluster-issuer: "letsencrypt-prod"
           hosts:
-            - host: photo.garu.io
+            - host: photo.garu.me
               paths:
                 - path: "/"
                   service:
                     identifier: main
           tls:
             - hosts:
-                - photo.garu.io
+                - photo.garu.me
               secretName: garu-io-photo-cert
 
     machine-learning:

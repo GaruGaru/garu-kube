@@ -56,7 +56,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: flux.garu.io
+    - host: flux.garu.me
       http:
         paths:
           - path: /
@@ -68,6 +68,6 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - flux.garu.io
+        - flux.garu.me
       secretName: webhook-receiver-tls
 

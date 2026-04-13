@@ -27,7 +27,7 @@ spec:
             - name: ND_MUSICFOLDER
               value: "/music/songs"
             - name: ND_BASEURL
-              value: "https://music.garu.io"
+              value: "https://music.garu.me"
           volumeMounts:
             - name: music-root
               mountPath: /music

@@ -13,7 +13,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: "garu.io"
+    - host: "garu.me"
       http:
         paths:
           - path: /cv
@@ -32,6 +32,6 @@ spec:
                   number: 80
   tls:
     - hosts:
-        - garu.io
+        - garu.me
       secretName: garu-io-cert
 ---

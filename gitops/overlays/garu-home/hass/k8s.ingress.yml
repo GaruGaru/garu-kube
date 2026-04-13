@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: "iot.garu.io"
+    - host: "iot.garu.me"
       http:
         paths:
           - path: /
@@ -21,6 +21,6 @@ spec:
                   name: http
   tls:
     - hosts:
-        - iot.garu.io
+        - iot.garu.me
       secretName: garu-io-iot-cert
 ---

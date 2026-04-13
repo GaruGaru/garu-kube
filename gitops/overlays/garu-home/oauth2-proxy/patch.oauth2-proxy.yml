@@ -16,7 +16,7 @@ spec:
     extraArgs:
       provider: github
       upstream: http://localhost/redirect/
-      cookie-domain: .garu.io
+      cookie-domain: .garu.me
       github-user: GaruGaru
 
     authenticatedEmailsFile:
@@ -30,11 +30,11 @@ spec:
         nginx.ingress.kubernetes.io/proxy-body-size: "0"
       path: /
       hosts:
-        - oauth.garu.io
+        - oauth.garu.me
       tls:
         - secretName: oauth-cert
           hosts:
-            - oauth.garu.io
+            - oauth.garu.me
 
     resources:
       limits:

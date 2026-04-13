@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: "music.garu.io"
+    - host: "music.garu.me"
       http:
         paths:
           - path: /
@@ -21,6 +21,6 @@ spec:
                   name: navidrome
   tls:
     - hosts:
-        - music.garu.io
+        - music.garu.me
       secretName: garu-io-music-cert
 ---

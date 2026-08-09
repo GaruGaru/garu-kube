@@ -8,9 +8,9 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://immich-app.github.io/immich-charts
+      # renovate: datasource=docker depName=ghcr.io/immich-app/immich-charts/immich
       chart: immich
-      version: 0.10.3
+      version: 0.13.1
       sourceRef:
         kind: HelmRepository
         name: immich
@@ -37,11 +37,11 @@ spec:
         containers:
           main:
             image:
-              tag: v2.0.0
+              tag: v3.1.0
             env:
               REDIS_HOSTNAME: '{{ printf "%s-valkey" .Release.Name }}'
               IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
-              DB_URL: 'postgresql://immich:immich@immich-rw.postgres.svc.cluster.local:5432/immich?sslmode=require&sslmode=no-verify'
+              DB_URL: "postgresql://immich:immich@immich-rw.postgres.svc.cluster.local:5432/immich?sslmode=require&sslmode=no-verify"
 
     immich:
       metrics:
@@ -87,13 +87,13 @@ spec:
           autoLaunch: false
           autoRegister: true
           buttonText: Login with OAuth
-          clientId: ''
-          clientSecret: ''
+          clientId: ""
+          clientSecret: ""
           defaultStorageQuota:
           enabled: false
-          issuerUrl: ''
+          issuerUrl: ""
           mobileOverrideEnabled: false
-          mobileRedirectUri: ''
+          mobileRedirectUri: ""
           scope: openid email profile
           signingAlgorithm: RS256
           profileSigningAlgorithm: none
@@ -102,8 +102,8 @@ spec:
         passwordLogin:
           enabled: true
         server:
-          externalDomain: 'https://photo.garu.me'
-          loginPageMessage: ''
+          externalDomain: "https://photo.garu.me"
+          loginPageMessage: ""
 
     # Dependencies
     valkey:
@@ -152,4 +152,3 @@ spec:
       enabled: false
 
 ---
-

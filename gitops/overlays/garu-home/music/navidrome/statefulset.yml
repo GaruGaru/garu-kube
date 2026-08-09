@@ -20,7 +20,7 @@ spec:
         fsGroup: 1000
       containers:
         - name: navidrome
-          image: deluan/navidrome:0.59.0
+          image: deluan/navidrome:0.63.2
           env:
             - name: ND_DATAFOLDER
               value: "/data"
@@ -40,4 +40,3 @@ spec:
         - name: navidrome-db
           persistentVolumeClaim:
             claimName: navidrome-data
-

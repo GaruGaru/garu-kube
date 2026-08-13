@@ -12,6 +12,8 @@ resources:
   - ./sealed-secrets
   - ./music
   - ./adguard-home
+  - ./lumen
+
 patches:
   - path: patch.metal-lb.yml
   - path: patch.ingress-nginx.yml

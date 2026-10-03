@@ -1,6 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  - k8s.namespace.yml
   - k8s.repository.yml
-  - helm.ingress-nginx.yml
-  - namespace.yml
+  - k8s.certificate.yml
+  - helm.traefik.yml

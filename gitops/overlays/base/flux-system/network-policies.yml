@@ -9,7 +9,7 @@ spec:
     - from:
         - namespaceSelector:
             matchLabels:
-              namespace: ingress
+              namespace: traefik
   podSelector: {}
   policyTypes:
     - Ingress

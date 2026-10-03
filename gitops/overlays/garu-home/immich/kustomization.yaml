@@ -6,3 +6,4 @@ resources:
   - pvc-data.yml
   - repository.yml
   - helm.yml
+  - ingress.yml # currently the helm chart doesn't support new gateway api.

@@ -144,22 +144,7 @@ spec:
                 pullPolicy: IfNotPresent
       ingress:
         main:
-          enabled: true
-          className: nginx
-          annotations:
-            # proxy-body-size is set to 0 to remove the body limit on file uploads
-            nginx.ingress.kubernetes.io/proxy-body-size: "0"
-            cert-manager.io/cluster-issuer: "letsencrypt-prod"
-          hosts:
-            - host: photo.garu.me
-              paths:
-                - path: "/"
-                  service:
-                    identifier: main
-          tls:
-            - hosts:
-                - photo.garu.me
-              secretName: garu-io-photo-cert
+          enabled: false
 
     machine-learning:
       enabled: false

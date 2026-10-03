@@ -8,9 +8,9 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://the-data-appeal-company.github.io/helm-charts/
+      # renovate: registryUrl=oci://ghcr.io/traefik/helm/traefik
       chart: traefik
-      version: 41.6.1
+      version: v41.6.1
       sourceRef:
         kind: HelmRepository
         name: traefik

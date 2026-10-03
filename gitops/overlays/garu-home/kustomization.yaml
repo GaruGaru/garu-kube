@@ -4,7 +4,6 @@ resources:
   - ../base
   - ./cert-manager/
   - ./traefik/
-  - ./oauth2-proxy/
   - ./hass/
   - ./k8s.metal-lb-pool.yml
   - ./postgres

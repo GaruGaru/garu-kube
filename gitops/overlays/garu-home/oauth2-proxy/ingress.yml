@@ -2,19 +2,19 @@
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: navidrome-music-garu-me
-  namespace: music
+  name: oauth2-proxy-oauth-garu-me
+  namespace: oauth2-proxy
 spec:
   hostnames:
-    - music.garu.me
+    - oauth.garu.me
   parentRefs:
     - name: garu-me
       namespace: traefik
       sectionName: websecure
   rules:
     - backendRefs:
-        - name: navidrome
-          port: 4533
+        - name: oauth2-proxy
+          port: 80
       matches:
         - path:
             type: PathPrefix
@@ -24,11 +24,11 @@ spec:
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
-  name: navidrome-music-garu-me-http
-  namespace: music
+  name: oauth2-proxy-oauth-garu-me-http
+  namespace: oauth2-proxy
 spec:
   hostnames:
-    - music.garu.me
+    - oauth.garu.me
   parentRefs:
     - name: garu-me
       namespace: traefik

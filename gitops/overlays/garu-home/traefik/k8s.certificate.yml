@@ -1,0 +1,17 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: garu-me
+  namespace: traefik
+spec:
+  secretName: garu-me-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - flux.garu.me
+    - iot.garu.me
+    - photo.garu.me
+    - music.garu.me
+    - oauth.garu.me

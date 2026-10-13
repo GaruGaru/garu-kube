@@ -33,4 +33,8 @@ spec:
   values:
     # Sealed secrets controller configuration
     fullnameOverride: sealed-secrets-controller
+    metrics:
+      # Create a ServiceMonitor for the Prometheus Operator
+      serviceMonitor:
+        enabled: true
 ---

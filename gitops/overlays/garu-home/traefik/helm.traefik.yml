@@ -70,3 +70,12 @@ spec:
             from: All
           certificateRefs:
             - name: garu-me-tls
+
+    metrics:
+      prometheus:
+        # Dedicated metrics Service used by the ServiceMonitor
+        service:
+          enabled: true
+        # Create a ServiceMonitor for the Prometheus Operator
+        serviceMonitor:
+          enabled: true

@@ -30,5 +30,10 @@ spec:
     timeout: 10m
     recreate: true
     cleanupOnFail: true
+  values:
+    monitoring:
+      # The cloudnative-pg chart only supports a PodMonitor,
+      # it does not ship a ServiceMonitor template.
+      podMonitorEnabled: true
 ---
 

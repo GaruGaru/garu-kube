@@ -6,6 +6,17 @@ metadata:
   namespace: kube-system
 spec:
   values:
+    prometheus:
+      # Create ServiceMonitors for the Prometheus Operator
+      serviceMonitor:
+        enabled: true
+      # The chart requires prometheus.serviceAccount and prometheus.namespace when
+      # rbacPrometheus is true and a ServiceMonitor/PodMonitor is enabled. No
+      # Prometheus Operator is deployed in this repo yet, so namespace-scoped RBAC
+      # is disabled. Once an operator exists, set rbacPrometheus back to true and
+      # provide serviceAccount + namespace (and drop this comment).
+      rbacPrometheus: false
+
     controller:
       resources:
         limits:

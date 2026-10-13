@@ -32,4 +32,10 @@ spec:
     cleanupOnFail: true
   values:
     replicas: 2
+    # Required so the metrics endpoint allows anonymous scraping
+    metrics:
+      enabled: true
+    # Create a ServiceMonitor for the Prometheus Operator
+    serviceMonitor:
+      enabled: true
 ---

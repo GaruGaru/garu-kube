@@ -37,4 +37,8 @@ spec:
     global:
       leaderElection:
         namespace: "cert-manager"
+    prometheus:
+      # Create a ServiceMonitor for the Prometheus Operator
+      servicemonitor:
+        enabled: true
 ---

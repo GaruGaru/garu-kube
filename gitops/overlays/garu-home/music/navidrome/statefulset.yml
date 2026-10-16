@@ -20,7 +20,7 @@ spec:
         fsGroup: 1000
       containers:
         - name: navidrome
-          image: deluan/navidrome:0.63.2
+          image: deluan/navidrome:0.64.2
           env:
             - name: ND_DATAFOLDER
               value: "/data"
@@ -28,6 +28,8 @@ spec:
               value: "/music/songs"
             - name: ND_BASEURL
               value: "https://music.garu.me"
+            - name: ND_SCANNER_GROUPALBUMRELEASES
+              value: "true"
           volumeMounts:
             - name: music-root
               mountPath: /music

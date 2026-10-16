@@ -28,8 +28,8 @@ spec:
               value: "/music/songs"
             - name: ND_BASEURL
               value: "https://music.garu.me"
-            - name: ND_SCANNER_GROUPALBUMRELEASES
-              value: "true"
+            - name: ND_PID_ALBUM
+              value: "albumartistid,album"
           volumeMounts:
             - name: music-root
               mountPath: /music

@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: datasource=docker depName=ghcr.io/immich-app/immich-charts/immich
       chart: immich
-      version: 0.13.1
+      version: 0.13.4
       sourceRef:
         kind: HelmRepository
         name: immich
@@ -37,7 +37,7 @@ spec:
         containers:
           main:
             image:
-              tag: v3.1.0
+              tag: v3.3.5
             env:
               REDIS_HOSTNAME: '{{ printf "%s-valkey" .Release.Name }}'
               IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'

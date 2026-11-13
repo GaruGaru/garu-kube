@@ -20,7 +20,7 @@ spec:
         fsGroup: 1000
       containers:
         - name: navidrome
-          image: deluan/navidrome:0.64.2
+          image: deluan/navidrome:latest
           env:
             - name: ND_DATAFOLDER
               value: "/data"

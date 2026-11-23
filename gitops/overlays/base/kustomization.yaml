@@ -4,7 +4,6 @@ resources:
   - flux-system
   - cert-manager
   - metal-lb
-  - storage/local-path-provisioner
   - metrics-server
   - imprunetapp
   - inkture

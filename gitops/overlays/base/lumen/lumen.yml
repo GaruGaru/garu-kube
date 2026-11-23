@@ -1,0 +1,59 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  name: github-garugaru-lumen
+  namespace: flux-system
+spec:
+  encryptedData:
+    identity: AgCnTbR/wB0N79Fy1L3lQw6m5vWr4WjNvZJJdkWDjItKYD0bTF/B1DHdnCZWEUThf7bj+qTh08SA8pa8mDlleD3DNg0fmHpzYli0aCWt37aZCWTxS+mIbaWtowMnI+Q0Cumuw8QzkZlMAm7M+YGCMXvsdhHeoikBT/jeXsgHKFdwPc3F/xXJtHPassGAf9YuCO6r+oAmM9/ZpXRUVg4VQn/N4TUccPgBSusLhy0E6w8eIAQg6jUdr3tyTarvjcRS51Slw/RXUcpKpyqPGbLcD2TD54nrJGcp/B43vZrZz1UiWRIhA5oaxdqbrMFZYpxtAcBdePU9txqVTFT/MqXDUvAFozIOF0BosJRp/ia1oqhTRl4bm5oEHcE8Nn+pUO0pWkEVk+CaweKjJ0pdbyCpL0cyYnGQu6vsD4SVj/e3yurgFKQwCbc5EBEL6wVwX/L0sdlLcfNYzPSRMr2koRRAULWslDJtz8cX9q7+y0iW17ecUoKQgrpg0zTZeJ3KnVv1y2PvoHy1KuzZ6/9fCVko4ub8WJLbXA6vPNApAIAqQk5sOR+QX+WA/D4kkEKklh9gM67j7Bh+kqzUnUeHFe7uuL5uliZ/aILyC+Jd+W3dYYErp+ihy9JkpV4oyM8JPZuP781e+0dDqQCiCsjhVvn/Af4AqHazABCOcZeugFnv5YSfaw+8JanpsVzOH8q3sZ4kc/NGi1c97Kemo/QMQ0I7SVKQZpbAqYnExck07Ef/p3aLAH2X+pXAYvWirtL5A5iaAcl0VoSrNvWoZNDjbc7bOQuxF4CVYEa8DnkWEJPQep15JWgICnYAtIUwSs23B60lHlMPM+UYGEhADAd558W9z1WKSL/g+3eImDnCeH09v5waU0nucVTEPHRGOFEbjzOmjd1/TDmQ9vm8ZUD2Qo6hm7TC8yZdwl0cBm2KiyaZRMLkM0VQk7zcxMqZPXlENyjvN7IwS0ZdTC+gh8B6PH0Jq3Okev3d3UF6ljQPygZlPiWBHokvAlM6qcPf8dlXOjtzAjqMOqHikGqbh9aAmQPwhJ8PGWfODxRs4HOaT01/bwwtUh29MdMYqY/3qsUigAagt8hkm8c8Kbu8aHmWp6/YR0Zkrbf+jfoZ5A278jNrjC2RND4lJNKfBEksM5WOCJy7ZgA/RbiIPZavTrvzZTqoKECHXtL4CBo6hNpnkbe1iscWkMUl0Hkkblx+aihV9LQRVdvkPLiOw7h8A8SUWi08zpI=
+    known_hosts: AgBCwxbqxtxYCgajYDaIZsvlIqJEfU2DO+kflnPoCmcjr6d/9oU4QvGkMP3Fy/J+WSTuToU2l8jCB5D1pnjCKKyHnWf25x2EDbiCOraW+uPZMI6BOcFiyZYoxE6hhvY5sOMbsLruOEc/DFfAWHPIQxxVtWnjfpSnudZmrbj/1BadxOiIJmuzu3HeVtDdRH31IfqXKYv3wWX+e3ZdkCZdYhTH9lHEnfwxOQSvmtiiF4Qpz5qgPQjl0cCbJV1UIgQnVyYWXPZmTKoDBrB4uY23qDm+NpYwR/7Dio1mkuqGkkuTtSOETnZ3DxRT+fxZ0IafqsvzN6AiEX5yt1wTNPlVJiHBzrgJM5TSa9aCPe05tVj/UY/VdM9LylaC44nIE2OOz69JPld+P6XimCsqAAIPw17QVQ6hsph3qRD4o2ewV45rjkXp7DCOy7SjB2MEFvOKdAf4st8i45yHvDYb3qJh6ZvYDvnq9alIEZLymRDufuuQ9j16wwWtRh4g4AiYn9A0fcDaad3RzjXE8aohwkQKVL/6OGZucEKvlH2YTnmF3QlRdAqF2Ehce1ErrHtLf27XT0jy4c8t2cX6PuK8rSqgMLwHHPUDqptiioNiVc0jn46iDvu/M7bhml7kb/x4Yl9/INLqIgPCQrl0u+HkilZC3FoXQBgni16CbxTEHRdHF/dPnygw65F2p+QPb+fFGZb8+vLETVctSSRESyqhxdZebiLVMDMUWr+th4KO3ZYUAkpHYtITUPs/rARUuy4inG7XGZBbZA8PzYMDYoxrjtW2E+0P+srhFPli/XIgnoyogrgwIFvpxG80z8lmHrsAB+/tXyJ7I9E2Cnaulm6wiQLMHsReTgmITpCGjHivw0m1eZKLNbL3qhHGjRXd1qsYAvU4YEGa5leyHp96firEQZCgCyUwaBDUdZ11cPf+SFs=
+  template:
+    metadata:
+      name: github-garugaru-lumen
+      namespace: flux-system
+    type: Opaque
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: lumen
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  ref:
+    branch: master
+  secretRef:
+    name: github-lumen
+  url: ssh://git@github.com/garugaru/lumen.git
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: lumen
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./kubernetes
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: lumen
+---
+apiVersion: notification.toolkit.fluxcd.io/v1
+kind: Receiver
+metadata:
+  name: github-lumen
+  namespace: flux-system
+spec:
+  type: github
+  events:
+    - "ping"
+    - "push"
+  secretRef:
+    name: webhook-token
+  resources:
+    - apiVersion: source.toolkit.fluxcd.io/v1
+      kind: GitRepository
+      name: lumen
+---

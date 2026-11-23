@@ -7,5 +7,6 @@ resources:
   - metrics-server
   - imprunetapp
   - inkture
-  - dydns/
+  - lumen
+  - dydns
   - cloudnative-pg

@@ -4,3 +4,4 @@ resources:
   - webhook-receiver.yml
   - network-policies.yml
   - ingress.yml
+  - github-garugaru.yml

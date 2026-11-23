@@ -15,4 +15,3 @@ resources:
 
 patches:
   - path: patch.metal-lb.yml
-  - path: patch.storage.yml

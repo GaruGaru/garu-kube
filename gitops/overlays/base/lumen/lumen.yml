@@ -24,7 +24,7 @@ spec:
   ref:
     branch: master
   secretRef:
-    name: github-lumen
+    name: github-garugaru-lumen
   url: ssh://git@github.com/garugaru/lumen.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1

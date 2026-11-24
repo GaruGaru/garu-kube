@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: hass
+  namespace: hass
+spec:
+  serviceName: hass
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hass
+  template:
+    metadata:
+      labels:
+        app: hass
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: one
+      containers:
+        - name: hass
+          image: ghcr.io/home-assistant/home-assistant:2026.11.3
+          ports:
+            - name: http
+              containerPort: 8123
+              protocol: TCP
+          volumeMounts:
+            - name: hass-config
+              mountPath: /config
+            - name: zigbee-usb
+              mountPath: /dev/serial/by-id/usb-Silicon_Labs_Sonoff_Zigbee_3.0_USB_Dongle_Plus_0001-if00-port0
+      volumes:
+        - name: hass-config
+          persistentVolumeClaim:
+            claimName: hass-config
+        - name: zigbee-usb
+          hostPath:
+            path: /dev/serial/by-id/usb-Silicon_Labs_Sonoff_Zigbee_3.0_USB_Dongle_Plus_0001-if00-port0
+            type: CharDevice

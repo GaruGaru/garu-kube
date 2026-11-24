@@ -11,7 +11,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   iscsi:
     targetPortal: 192.168.1.5:3260
-    iqn: iqn.2026-01.local.nas:k8s-hass-config
+    iqn: iqn.2026-11.local.nas:k8s-hass-config
     lun: 0
     fsType: ext4
     readOnly: false
